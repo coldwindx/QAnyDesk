@@ -20,9 +20,8 @@ namespace CsHostInfo {
 constexpr CsHostInfo::CsHostInfo(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : cpuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , deviceid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , macaddress_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , active_(0){}
+  , diskdeviceid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , macaddress_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct CsHostInfoDefaultTypeInternal {
   constexpr CsHostInfoDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -45,9 +44,8 @@ const uint32_t TableStruct_CsHostInfo_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CsHostInfo::CsHostInfo, cpuid_),
-  PROTOBUF_FIELD_OFFSET(::CsHostInfo::CsHostInfo, deviceid_),
+  PROTOBUF_FIELD_OFFSET(::CsHostInfo::CsHostInfo, diskdeviceid_),
   PROTOBUF_FIELD_OFFSET(::CsHostInfo::CsHostInfo, macaddress_),
-  PROTOBUF_FIELD_OFFSET(::CsHostInfo::CsHostInfo, active_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::CsHostInfo::CsHostInfo)},
@@ -58,15 +56,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_CsHostInfo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\020CsHostInfo.proto\022\nCsHostInfo\"Q\n\nCsHost"
-  "Info\022\r\n\005cpuId\030\001 \001(\t\022\020\n\010deviceId\030\002 \001(\t\022\022\n"
-  "\nmacAddress\030\003 \001(\t\022\016\n\006active\030\004 \001(\005B*\n\025com"
-  ".qanydesk.protocolB\017CsHostInfoOuterH\001b\006p"
-  "roto3"
+  "\n\020CsHostInfo.proto\022\nCsHostInfo\"E\n\nCsHost"
+  "Info\022\r\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001("
+  "\t\022\022\n\nmacAddress\030\003 \001(\tB*\n\025com.qanydesk.pr"
+  "otocolB\017CsHostInfoOuterH\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_CsHostInfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_CsHostInfo_2eproto = {
-  false, false, 165, descriptor_table_protodef_CsHostInfo_2eproto, "CsHostInfo.proto", 
+  false, false, 153, descriptor_table_protodef_CsHostInfo_2eproto, "CsHostInfo.proto", 
   &descriptor_table_CsHostInfo_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_CsHostInfo_2eproto::offsets,
   file_level_metadata_CsHostInfo_2eproto, file_level_enum_descriptors_CsHostInfo_2eproto, file_level_service_descriptors_CsHostInfo_2eproto,
@@ -105,12 +102,12 @@ CsHostInfo::CsHostInfo(const CsHostInfo& from)
     cpuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_cpuid(), 
       GetArenaForAllocation());
   }
-  deviceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  diskdeviceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    deviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    diskdeviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_deviceid().empty()) {
-    deviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_deviceid(), 
+  if (!from._internal_diskdeviceid().empty()) {
+    diskdeviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_diskdeviceid(), 
       GetArenaForAllocation());
   }
   macaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -121,7 +118,6 @@ CsHostInfo::CsHostInfo(const CsHostInfo& from)
     macaddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_macaddress(), 
       GetArenaForAllocation());
   }
-  active_ = from.active_;
   // @@protoc_insertion_point(copy_constructor:CsHostInfo.CsHostInfo)
 }
 
@@ -130,15 +126,14 @@ cpuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlread
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   cpuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-deviceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+diskdeviceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  deviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  diskdeviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 macaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   macaddress_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-active_ = 0;
 }
 
 CsHostInfo::~CsHostInfo() {
@@ -151,7 +146,7 @@ CsHostInfo::~CsHostInfo() {
 inline void CsHostInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   cpuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  deviceid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  diskdeviceid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   macaddress_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -172,9 +167,8 @@ void CsHostInfo::Clear() {
   (void) cached_has_bits;
 
   cpuid_.ClearToEmpty();
-  deviceid_.ClearToEmpty();
+  diskdeviceid_.ClearToEmpty();
   macaddress_.ClearToEmpty();
-  active_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -194,12 +188,12 @@ const char* CsHostInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // string deviceId = 2;
+      // string diskDeviceId = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_deviceid();
+          auto str = _internal_mutable_diskdeviceid();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CsHostInfo.CsHostInfo.deviceId"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CsHostInfo.CsHostInfo.diskDeviceId"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -210,14 +204,6 @@ const char* CsHostInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           auto str = _internal_mutable_macaddress();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CsHostInfo.CsHostInfo.macAddress"));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 active = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          active_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -261,14 +247,14 @@ uint8_t* CsHostInfo::_InternalSerialize(
         1, this->_internal_cpuid(), target);
   }
 
-  // string deviceId = 2;
-  if (!this->_internal_deviceid().empty()) {
+  // string diskDeviceId = 2;
+  if (!this->_internal_diskdeviceid().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_deviceid().data(), static_cast<int>(this->_internal_deviceid().length()),
+      this->_internal_diskdeviceid().data(), static_cast<int>(this->_internal_diskdeviceid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "CsHostInfo.CsHostInfo.deviceId");
+      "CsHostInfo.CsHostInfo.diskDeviceId");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_deviceid(), target);
+        2, this->_internal_diskdeviceid(), target);
   }
 
   // string macAddress = 3;
@@ -279,12 +265,6 @@ uint8_t* CsHostInfo::_InternalSerialize(
       "CsHostInfo.CsHostInfo.macAddress");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_macaddress(), target);
-  }
-
-  // int32 active = 4;
-  if (this->_internal_active() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_active(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -310,11 +290,11 @@ size_t CsHostInfo::ByteSizeLong() const {
         this->_internal_cpuid());
   }
 
-  // string deviceId = 2;
-  if (!this->_internal_deviceid().empty()) {
+  // string diskDeviceId = 2;
+  if (!this->_internal_diskdeviceid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_deviceid());
+        this->_internal_diskdeviceid());
   }
 
   // string macAddress = 3;
@@ -322,11 +302,6 @@ size_t CsHostInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_macaddress());
-  }
-
-  // int32 active = 4;
-  if (this->_internal_active() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_active());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -354,14 +329,11 @@ void CsHostInfo::MergeFrom(const CsHostInfo& from) {
   if (!from._internal_cpuid().empty()) {
     _internal_set_cpuid(from._internal_cpuid());
   }
-  if (!from._internal_deviceid().empty()) {
-    _internal_set_deviceid(from._internal_deviceid());
+  if (!from._internal_diskdeviceid().empty()) {
+    _internal_set_diskdeviceid(from._internal_diskdeviceid());
   }
   if (!from._internal_macaddress().empty()) {
     _internal_set_macaddress(from._internal_macaddress());
-  }
-  if (from._internal_active() != 0) {
-    _internal_set_active(from._internal_active());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -389,15 +361,14 @@ void CsHostInfo::InternalSwap(CsHostInfo* other) {
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &deviceid_, lhs_arena,
-      &other->deviceid_, rhs_arena
+      &diskdeviceid_, lhs_arena,
+      &other->diskdeviceid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &macaddress_, lhs_arena,
       &other->macaddress_, rhs_arena
   );
-  swap(active_, other->active_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CsHostInfo::GetMetadata() const {

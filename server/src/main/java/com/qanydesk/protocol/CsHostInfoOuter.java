@@ -35,20 +35,20 @@ public final class CsHostInfoOuter {
      * 硬盘ID
      * </pre>
      *
-     * <code>string deviceId = 2;</code>
-     * @return The deviceId.
+     * <code>string diskDeviceId = 2;</code>
+     * @return The diskDeviceId.
      */
-    java.lang.String getDeviceId();
+    java.lang.String getDiskDeviceId();
     /**
      * <pre>
      * 硬盘ID
      * </pre>
      *
-     * <code>string deviceId = 2;</code>
-     * @return The bytes for deviceId.
+     * <code>string diskDeviceId = 2;</code>
+     * @return The bytes for diskDeviceId.
      */
     com.google.protobuf.ByteString
-        getDeviceIdBytes();
+        getDiskDeviceIdBytes();
 
     /**
      * <code>string macAddress = 3;</code>
@@ -61,12 +61,6 @@ public final class CsHostInfoOuter {
      */
     com.google.protobuf.ByteString
         getMacAddressBytes();
-
-    /**
-     * <code>int32 active = 4;</code>
-     * @return The active.
-     */
-    int getActive();
   }
   /**
    * <pre>
@@ -86,7 +80,7 @@ public final class CsHostInfoOuter {
     }
     private CsHostInfo() {
       cpuId_ = "";
-      deviceId_ = "";
+      diskDeviceId_ = "";
       macAddress_ = "";
     }
 
@@ -129,18 +123,13 @@ public final class CsHostInfoOuter {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              deviceId_ = s;
+              diskDeviceId_ = s;
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               macAddress_ = s;
-              break;
-            }
-            case 32: {
-
-              active_ = input.readInt32();
               break;
             }
             default: {
@@ -213,26 +202,26 @@ public final class CsHostInfoOuter {
       }
     }
 
-    public static final int DEVICEID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object deviceId_;
+    public static final int DISKDEVICEID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object diskDeviceId_;
     /**
      * <pre>
      * 硬盘ID
      * </pre>
      *
-     * <code>string deviceId = 2;</code>
-     * @return The deviceId.
+     * <code>string diskDeviceId = 2;</code>
+     * @return The diskDeviceId.
      */
     @java.lang.Override
-    public java.lang.String getDeviceId() {
-      java.lang.Object ref = deviceId_;
+    public java.lang.String getDiskDeviceId() {
+      java.lang.Object ref = diskDeviceId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        deviceId_ = s;
+        diskDeviceId_ = s;
         return s;
       }
     }
@@ -241,18 +230,18 @@ public final class CsHostInfoOuter {
      * 硬盘ID
      * </pre>
      *
-     * <code>string deviceId = 2;</code>
-     * @return The bytes for deviceId.
+     * <code>string diskDeviceId = 2;</code>
+     * @return The bytes for diskDeviceId.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDeviceIdBytes() {
-      java.lang.Object ref = deviceId_;
+        getDiskDeviceIdBytes() {
+      java.lang.Object ref = diskDeviceId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        deviceId_ = b;
+        diskDeviceId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -297,17 +286,6 @@ public final class CsHostInfoOuter {
       }
     }
 
-    public static final int ACTIVE_FIELD_NUMBER = 4;
-    private int active_;
-    /**
-     * <code>int32 active = 4;</code>
-     * @return The active.
-     */
-    @java.lang.Override
-    public int getActive() {
-      return active_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -325,14 +303,11 @@ public final class CsHostInfoOuter {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cpuId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cpuId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diskDeviceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, diskDeviceId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(macAddress_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, macAddress_);
-      }
-      if (active_ != 0) {
-        output.writeInt32(4, active_);
       }
       unknownFields.writeTo(output);
     }
@@ -346,15 +321,11 @@ public final class CsHostInfoOuter {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cpuId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cpuId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diskDeviceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, diskDeviceId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(macAddress_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, macAddress_);
-      }
-      if (active_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, active_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -373,12 +344,10 @@ public final class CsHostInfoOuter {
 
       if (!getCpuId()
           .equals(other.getCpuId())) return false;
-      if (!getDeviceId()
-          .equals(other.getDeviceId())) return false;
+      if (!getDiskDeviceId()
+          .equals(other.getDiskDeviceId())) return false;
       if (!getMacAddress()
           .equals(other.getMacAddress())) return false;
-      if (getActive()
-          != other.getActive()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -392,12 +361,10 @@ public final class CsHostInfoOuter {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CPUID_FIELD_NUMBER;
       hash = (53 * hash) + getCpuId().hashCode();
-      hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
-      hash = (53 * hash) + getDeviceId().hashCode();
+      hash = (37 * hash) + DISKDEVICEID_FIELD_NUMBER;
+      hash = (53 * hash) + getDiskDeviceId().hashCode();
       hash = (37 * hash) + MACADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getMacAddress().hashCode();
-      hash = (37 * hash) + ACTIVE_FIELD_NUMBER;
-      hash = (53 * hash) + getActive();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -537,11 +504,9 @@ public final class CsHostInfoOuter {
         super.clear();
         cpuId_ = "";
 
-        deviceId_ = "";
+        diskDeviceId_ = "";
 
         macAddress_ = "";
-
-        active_ = 0;
 
         return this;
       }
@@ -570,9 +535,8 @@ public final class CsHostInfoOuter {
       public com.qanydesk.protocol.CsHostInfoOuter.CsHostInfo buildPartial() {
         com.qanydesk.protocol.CsHostInfoOuter.CsHostInfo result = new com.qanydesk.protocol.CsHostInfoOuter.CsHostInfo(this);
         result.cpuId_ = cpuId_;
-        result.deviceId_ = deviceId_;
+        result.diskDeviceId_ = diskDeviceId_;
         result.macAddress_ = macAddress_;
-        result.active_ = active_;
         onBuilt();
         return result;
       }
@@ -625,16 +589,13 @@ public final class CsHostInfoOuter {
           cpuId_ = other.cpuId_;
           onChanged();
         }
-        if (!other.getDeviceId().isEmpty()) {
-          deviceId_ = other.deviceId_;
+        if (!other.getDiskDeviceId().isEmpty()) {
+          diskDeviceId_ = other.diskDeviceId_;
           onChanged();
         }
         if (!other.getMacAddress().isEmpty()) {
           macAddress_ = other.macAddress_;
           onChanged();
-        }
-        if (other.getActive() != 0) {
-          setActive(other.getActive());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -741,22 +702,22 @@ public final class CsHostInfoOuter {
         return this;
       }
 
-      private java.lang.Object deviceId_ = "";
+      private java.lang.Object diskDeviceId_ = "";
       /**
        * <pre>
        * 硬盘ID
        * </pre>
        *
-       * <code>string deviceId = 2;</code>
-       * @return The deviceId.
+       * <code>string diskDeviceId = 2;</code>
+       * @return The diskDeviceId.
        */
-      public java.lang.String getDeviceId() {
-        java.lang.Object ref = deviceId_;
+      public java.lang.String getDiskDeviceId() {
+        java.lang.Object ref = diskDeviceId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          deviceId_ = s;
+          diskDeviceId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -767,17 +728,17 @@ public final class CsHostInfoOuter {
        * 硬盘ID
        * </pre>
        *
-       * <code>string deviceId = 2;</code>
-       * @return The bytes for deviceId.
+       * <code>string diskDeviceId = 2;</code>
+       * @return The bytes for diskDeviceId.
        */
       public com.google.protobuf.ByteString
-          getDeviceIdBytes() {
-        java.lang.Object ref = deviceId_;
+          getDiskDeviceIdBytes() {
+        java.lang.Object ref = diskDeviceId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          deviceId_ = b;
+          diskDeviceId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -788,17 +749,17 @@ public final class CsHostInfoOuter {
        * 硬盘ID
        * </pre>
        *
-       * <code>string deviceId = 2;</code>
-       * @param value The deviceId to set.
+       * <code>string diskDeviceId = 2;</code>
+       * @param value The diskDeviceId to set.
        * @return This builder for chaining.
        */
-      public Builder setDeviceId(
+      public Builder setDiskDeviceId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        deviceId_ = value;
+        diskDeviceId_ = value;
         onChanged();
         return this;
       }
@@ -807,12 +768,12 @@ public final class CsHostInfoOuter {
        * 硬盘ID
        * </pre>
        *
-       * <code>string deviceId = 2;</code>
+       * <code>string diskDeviceId = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDeviceId() {
+      public Builder clearDiskDeviceId() {
         
-        deviceId_ = getDefaultInstance().getDeviceId();
+        diskDeviceId_ = getDefaultInstance().getDiskDeviceId();
         onChanged();
         return this;
       }
@@ -821,18 +782,18 @@ public final class CsHostInfoOuter {
        * 硬盘ID
        * </pre>
        *
-       * <code>string deviceId = 2;</code>
-       * @param value The bytes for deviceId to set.
+       * <code>string diskDeviceId = 2;</code>
+       * @param value The bytes for diskDeviceId to set.
        * @return This builder for chaining.
        */
-      public Builder setDeviceIdBytes(
+      public Builder setDiskDeviceIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        deviceId_ = value;
+        diskDeviceId_ = value;
         onChanged();
         return this;
       }
@@ -912,37 +873,6 @@ public final class CsHostInfoOuter {
         onChanged();
         return this;
       }
-
-      private int active_ ;
-      /**
-       * <code>int32 active = 4;</code>
-       * @return The active.
-       */
-      @java.lang.Override
-      public int getActive() {
-        return active_;
-      }
-      /**
-       * <code>int32 active = 4;</code>
-       * @param value The active to set.
-       * @return This builder for chaining.
-       */
-      public Builder setActive(int value) {
-        
-        active_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 active = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearActive() {
-        
-        active_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1010,11 +940,10 @@ public final class CsHostInfoOuter {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020CsHostInfo.proto\022\nCsHostInfo\"Q\n\nCsHost" +
-      "Info\022\r\n\005cpuId\030\001 \001(\t\022\020\n\010deviceId\030\002 \001(\t\022\022\n" +
-      "\nmacAddress\030\003 \001(\t\022\016\n\006active\030\004 \001(\005B*\n\025com" +
-      ".qanydesk.protocolB\017CsHostInfoOuterH\001b\006p" +
-      "roto3"
+      "\n\020CsHostInfo.proto\022\nCsHostInfo\"E\n\nCsHost" +
+      "Info\022\r\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001(" +
+      "\t\022\022\n\nmacAddress\030\003 \001(\tB*\n\025com.qanydesk.pr" +
+      "otocolB\017CsHostInfoOuterH\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1025,7 +954,7 @@ public final class CsHostInfoOuter {
     internal_static_CsHostInfo_CsHostInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CsHostInfo_CsHostInfo_descriptor,
-        new java.lang.String[] { "CpuId", "DeviceId", "MacAddress", "Active", });
+        new java.lang.String[] { "CpuId", "DiskDeviceId", "MacAddress", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

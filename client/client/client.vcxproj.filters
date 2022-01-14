@@ -33,15 +33,15 @@
     <Filter Include="common">
       <UniqueIdentifier>{f938d8dd-20ef-4f4f-8ed5-ecb0af245fb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{fbe7295d-e5cc-4ac4-9a03-4fb4a3c24f74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="protocol\QMessage.pb.cc">
-      <Filter>Source Files\protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol\CsHostInfo.pb.cc">
       <Filter>Source Files\protocol</Filter>
     </ClCompile>
     <ClCompile Include="MainWindow.cpp">
@@ -53,16 +53,25 @@
     <ClCompile Include="common\DeviceInfo.cpp">
       <Filter>common</Filter>
     </ClCompile>
+    <ClCompile Include="protocol\CsHostInfo.pb.cc">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\Protocol.pb.cc">
+      <Filter>protocol</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="protocol\QMessage.pb.h">
       <Filter>Header Files\protocol</Filter>
     </ClInclude>
-    <ClInclude Include="protocol\CsHostInfo.pb.h">
-      <Filter>Header Files\protocol</Filter>
-    </ClInclude>
     <ClInclude Include="common\Global.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\CsHostInfo.pb.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\Protocol.pb.h">
+      <Filter>protocol</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

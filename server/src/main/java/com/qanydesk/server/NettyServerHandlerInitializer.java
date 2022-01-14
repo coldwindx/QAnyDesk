@@ -1,7 +1,8 @@
 package com.qanydesk.server;
 
-import com.qanydesk.codec.QMessageDecoder;
+import com.qanydesk.codec.ProtocolDecoder;
 import com.qanydesk.dispatcher.MessageDispatcher;
+import com.qanydesk.protocol.ProtocolOuter;
 import com.qanydesk.protocol.QMessageOuter;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -23,8 +24,8 @@ public class NettyServerHandlerInitializer extends ChannelInitializer<Channel> {
         // <2> 添加NettyServerHandler到ChannelPipeline
         channelPipeline
                 // 入站，处理粘包拆包
-                .addLast(new QMessageDecoder())
-                .addLast("QMessageProtobufDecoder", new ProtobufDecoder(QMessageOuter.QMessage.getDefaultInstance()))
+                .addLast(new ProtocolDecoder())
+                .addLast("ProtocolProtobufDecoder", new ProtobufDecoder(ProtocolOuter.Protocol.getDefaultInstance()))
 //                // 出站
 //                .addLast(new ProtobufFixed32LengthFieldPrependerRedefine())
 //                .addLast(new ProtobufEncoder())

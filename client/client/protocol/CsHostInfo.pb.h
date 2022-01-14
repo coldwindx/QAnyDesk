@@ -188,9 +188,8 @@ class CsHostInfo final :
 
   enum : int {
     kCpuIdFieldNumber = 1,
-    kDeviceIdFieldNumber = 2,
+    kDiskDeviceIdFieldNumber = 2,
     kMacAddressFieldNumber = 3,
-    kActiveFieldNumber = 4,
   };
   // string cpuId = 1;
   void clear_cpuid();
@@ -206,18 +205,18 @@ class CsHostInfo final :
   std::string* _internal_mutable_cpuid();
   public:
 
-  // string deviceId = 2;
-  void clear_deviceid();
-  const std::string& deviceid() const;
+  // string diskDeviceId = 2;
+  void clear_diskdeviceid();
+  const std::string& diskdeviceid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_deviceid(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_deviceid();
-  PROTOBUF_NODISCARD std::string* release_deviceid();
-  void set_allocated_deviceid(std::string* deviceid);
+  void set_diskdeviceid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_diskdeviceid();
+  PROTOBUF_NODISCARD std::string* release_diskdeviceid();
+  void set_allocated_diskdeviceid(std::string* diskdeviceid);
   private:
-  const std::string& _internal_deviceid() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_deviceid(const std::string& value);
-  std::string* _internal_mutable_deviceid();
+  const std::string& _internal_diskdeviceid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_diskdeviceid(const std::string& value);
+  std::string* _internal_mutable_diskdeviceid();
   public:
 
   // string macAddress = 3;
@@ -234,15 +233,6 @@ class CsHostInfo final :
   std::string* _internal_mutable_macaddress();
   public:
 
-  // int32 active = 4;
-  void clear_active();
-  int32_t active() const;
-  void set_active(int32_t value);
-  private:
-  int32_t _internal_active() const;
-  void _internal_set_active(int32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CsHostInfo.CsHostInfo)
  private:
   class _Internal;
@@ -251,9 +241,8 @@ class CsHostInfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cpuid_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr deviceid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr diskdeviceid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr macaddress_;
-  int32_t active_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_CsHostInfo_2eproto;
 };
@@ -319,55 +308,55 @@ inline void CsHostInfo::set_allocated_cpuid(std::string* cpuid) {
   // @@protoc_insertion_point(field_set_allocated:CsHostInfo.CsHostInfo.cpuId)
 }
 
-// string deviceId = 2;
-inline void CsHostInfo::clear_deviceid() {
-  deviceid_.ClearToEmpty();
+// string diskDeviceId = 2;
+inline void CsHostInfo::clear_diskdeviceid() {
+  diskdeviceid_.ClearToEmpty();
 }
-inline const std::string& CsHostInfo::deviceid() const {
-  // @@protoc_insertion_point(field_get:CsHostInfo.CsHostInfo.deviceId)
-  return _internal_deviceid();
+inline const std::string& CsHostInfo::diskdeviceid() const {
+  // @@protoc_insertion_point(field_get:CsHostInfo.CsHostInfo.diskDeviceId)
+  return _internal_diskdeviceid();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CsHostInfo::set_deviceid(ArgT0&& arg0, ArgT... args) {
+void CsHostInfo::set_diskdeviceid(ArgT0&& arg0, ArgT... args) {
  
- deviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CsHostInfo.CsHostInfo.deviceId)
+ diskdeviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CsHostInfo.CsHostInfo.diskDeviceId)
 }
-inline std::string* CsHostInfo::mutable_deviceid() {
-  std::string* _s = _internal_mutable_deviceid();
-  // @@protoc_insertion_point(field_mutable:CsHostInfo.CsHostInfo.deviceId)
+inline std::string* CsHostInfo::mutable_diskdeviceid() {
+  std::string* _s = _internal_mutable_diskdeviceid();
+  // @@protoc_insertion_point(field_mutable:CsHostInfo.CsHostInfo.diskDeviceId)
   return _s;
 }
-inline const std::string& CsHostInfo::_internal_deviceid() const {
-  return deviceid_.Get();
+inline const std::string& CsHostInfo::_internal_diskdeviceid() const {
+  return diskdeviceid_.Get();
 }
-inline void CsHostInfo::_internal_set_deviceid(const std::string& value) {
+inline void CsHostInfo::_internal_set_diskdeviceid(const std::string& value) {
   
-  deviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  diskdeviceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* CsHostInfo::_internal_mutable_deviceid() {
+inline std::string* CsHostInfo::_internal_mutable_diskdeviceid() {
   
-  return deviceid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return diskdeviceid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* CsHostInfo::release_deviceid() {
-  // @@protoc_insertion_point(field_release:CsHostInfo.CsHostInfo.deviceId)
-  return deviceid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* CsHostInfo::release_diskdeviceid() {
+  // @@protoc_insertion_point(field_release:CsHostInfo.CsHostInfo.diskDeviceId)
+  return diskdeviceid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void CsHostInfo::set_allocated_deviceid(std::string* deviceid) {
-  if (deviceid != nullptr) {
+inline void CsHostInfo::set_allocated_diskdeviceid(std::string* diskdeviceid) {
+  if (diskdeviceid != nullptr) {
     
   } else {
     
   }
-  deviceid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), deviceid,
+  diskdeviceid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), diskdeviceid,
       GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (deviceid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    deviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  if (diskdeviceid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    diskdeviceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CsHostInfo.CsHostInfo.deviceId)
+  // @@protoc_insertion_point(field_set_allocated:CsHostInfo.CsHostInfo.diskDeviceId)
 }
 
 // string macAddress = 3;
@@ -419,26 +408,6 @@ inline void CsHostInfo::set_allocated_macaddress(std::string* macaddress) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CsHostInfo.CsHostInfo.macAddress)
-}
-
-// int32 active = 4;
-inline void CsHostInfo::clear_active() {
-  active_ = 0;
-}
-inline int32_t CsHostInfo::_internal_active() const {
-  return active_;
-}
-inline int32_t CsHostInfo::active() const {
-  // @@protoc_insertion_point(field_get:CsHostInfo.CsHostInfo.active)
-  return _internal_active();
-}
-inline void CsHostInfo::_internal_set_active(int32_t value) {
-  
-  active_ = value;
-}
-inline void CsHostInfo::set_active(int32_t value) {
-  _internal_set_active(value);
-  // @@protoc_insertion_point(field_set:CsHostInfo.CsHostInfo.active)
 }
 
 #ifdef __GNUC__

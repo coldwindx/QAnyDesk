@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	device = DeviceInfo::init("config.ini");	// 加载配置信息
 	setTrayMenu();								// 系统托盘显示
 	connectToServer();
-
-
 }
 
 MainWindow::~MainWindow()
@@ -54,6 +52,8 @@ void MainWindow::connectToServer()
 	connect(network, &NetworkHandler::disconnected, this, &MainWindow::onDisconnected);
 	// 窗口关闭事件
 	connect(this, &MainWindow::closed, this, &MainWindow::quit);
+	// 发送数据
+	connect(this, &MainWindow::send, network, &NetworkHandler::send);
 	network->moveToThread(thread);
 	thread->start();
 }
@@ -62,6 +62,23 @@ void MainWindow::onConnected()
 {
 	ui->stateLamp->setStyleSheet("background-color:rgb(50,190,166);border-radius:15px");
 	ui->stateLabel->setText(QSTRING("就绪"));
+	// 发送注册信息
+		// <1> 设备信息
+	Protocol::CsHostInfo * info = new Protocol::CsHostInfo();
+	QString hash = DeviceInfo::hash(device->platformCpuId(), device->macAddress());
+	info->set_diskdeviceid(device->diskDeviceID().toStdString());
+	info->set_cpuid(hash.toStdString());        // 使用C++标准string
+	info->set_macaddress(device->macAddress().toStdString());
+
+	Protocol::Protocol protocol;
+	protocol.set_type("CsHostInfo");
+	protocol.set_allocated_cshostinfo(info);
+		// <2> 序列化
+	int size = protocol.ByteSize();
+	char * buf = new char[size];
+	protocol.SerializeToArray(buf, size);
+		// <3> 发送
+	emit send(buf, size);
 }
 
 void MainWindow::onDisconnected()

@@ -52,5 +52,7 @@ compile_commands.json
 *creator.user*
 
 .vs
-.idea
-.mvn
+.idea/
+.mvn/
+client/x64/
+client/client/x64/

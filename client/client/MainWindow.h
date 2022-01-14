@@ -8,6 +8,7 @@
 #include "common/Global.h"
 #include "common/DeviceInfo.h"
 #include "common/NetworkHandler.h"
+#include "protocol/Protocol.pb.h"
 
 namespace Ui {
     class MainWindow;
@@ -22,6 +23,7 @@ public:
 	~MainWindow();
 signals:
 	void closed();
+	void send(const char * data, int len);
 protected:
 	void setTrayMenu();
 	void connectToServer();

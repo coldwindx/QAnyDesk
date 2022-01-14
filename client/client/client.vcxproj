@@ -97,10 +97,13 @@
     <ClCompile Include="common\NetworkHandler.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="protocol\CsHostInfo.pb.cc" />
+    <ClCompile Include="protocol\Protocol.pb.cc" />
     <ClCompile Include="protocol\QMessage.pb.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="protocol\CsHostInfo.pb.h" />
+    <ClInclude Include="protocol\Protocol.pb.h" />
     <QtMoc Include="common\DeviceInfo.h" />
     <QtMoc Include="common\NetworkHandler.h" />
     <QtMoc Include="MainWindow.h" />
@@ -108,7 +111,6 @@
     <QtMoc Include="button\PencilButton.h" />
     <QtMoc Include="button\EyeButton.h" />
     <ClInclude Include="common\Global.h" />
-    <ClInclude Include="protocol\CsHostInfo.pb.h" />
     <ClInclude Include="protocol\QMessage.pb.h" />
   </ItemGroup>
   <ItemGroup>
