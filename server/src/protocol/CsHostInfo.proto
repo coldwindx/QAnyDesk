@@ -1,0 +1,13 @@
+syntax = "proto3";
+package CsHostInfo;                // Java的类名，C++的命名空间
+
+option optimize_for = SPEED;    // 加快解析
+option java_package = "com.qanydesk.protocol";
+option java_outer_classname = "CsHostInfoOuter";
+// C++的头文件名取第一个message名
+message CsHostInfo {
+    string cpuId = 1;
+    string deviceId = 2;        // 硬盘ID
+    string macAddress = 3;
+    int32 active = 4;
+}

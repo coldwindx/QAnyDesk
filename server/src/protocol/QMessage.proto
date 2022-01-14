@@ -1,0 +1,11 @@
+syntax = "proto3";
+package QMessage;                // Java的类名，C++的命名空间
+
+option optimize_for = SPEED;    // 加快解析
+option java_package = "com.qanydesk.protocol";
+option java_outer_classname = "QMessageOuter";
+// C++的头文件名取第一个message名
+message QMessage {
+    int32 type = 1;
+    string cpuId = 2;
+}

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\protocol">
+      <UniqueIdentifier>{81b998a9-d174-4419-80a6-21a770017bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\protocol">
+      <UniqueIdentifier>{8913a1f1-3ae4-446c-b699-a6dd4ac4fd10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="button">
+      <UniqueIdentifier>{8a83a1d3-58e3-4eeb-b016-909297a09c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{f938d8dd-20ef-4f4f-8ed5-ecb0af245fb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\QMessage.pb.cc">
+      <Filter>Source Files\protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\CsHostInfo.pb.cc">
+      <Filter>Source Files\protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common\NetworkHandler.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\DeviceInfo.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="protocol\QMessage.pb.h">
+      <Filter>Header Files\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\CsHostInfo.pb.h">
+      <Filter>Header Files\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Global.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="button\EyeButton.h">
+      <Filter>button</Filter>
+    </QtMoc>
+    <QtMoc Include="button\PencilButton.h">
+      <Filter>button</Filter>
+    </QtMoc>
+    <QtMoc Include="button\SettingButton.h">
+      <Filter>button</Filter>
+    </QtMoc>
+    <QtMoc Include="MainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="common\NetworkHandler.h">
+      <Filter>common</Filter>
+    </QtMoc>
+    <QtMoc Include="common\DeviceInfo.h">
+      <Filter>common</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="src\css.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtRcc Include="src\src.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="MainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>
