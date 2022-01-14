@@ -46,7 +46,7 @@ struct TableStruct_Protocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -60,10 +60,14 @@ extern CsHostInfoDefaultTypeInternal _CsHostInfo_default_instance_;
 class Protocol;
 struct ProtocolDefaultTypeInternal;
 extern ProtocolDefaultTypeInternal _Protocol_default_instance_;
+class ScReplyInfo;
+struct ScReplyInfoDefaultTypeInternal;
+extern ScReplyInfoDefaultTypeInternal _ScReplyInfo_default_instance_;
 }  // namespace Protocol
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Protocol::CsHostInfo* Arena::CreateMaybeMessage<::Protocol::CsHostInfo>(Arena*);
 template<> ::Protocol::Protocol* Arena::CreateMaybeMessage<::Protocol::Protocol>(Arena*);
+template<> ::Protocol::ScReplyInfo* Arena::CreateMaybeMessage<::Protocol::ScReplyInfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Protocol {
 
@@ -114,6 +118,7 @@ class Protocol final :
   }
   enum BodyCase {
     kCsHostInfo = 2,
+    kScReplyInfo = 3,
     BODY_NOT_SET = 0,
   };
 
@@ -198,6 +203,7 @@ class Protocol final :
   enum : int {
     kTypeFieldNumber = 1,
     kCsHostInfoFieldNumber = 2,
+    kScReplyInfoFieldNumber = 3,
   };
   // string type = 1;
   void clear_type();
@@ -231,12 +237,31 @@ class Protocol final :
       ::Protocol::CsHostInfo* cshostinfo);
   ::Protocol::CsHostInfo* unsafe_arena_release_cshostinfo();
 
+  // .Protocol.ScReplyInfo scReplyInfo = 3;
+  bool has_screplyinfo() const;
+  private:
+  bool _internal_has_screplyinfo() const;
+  public:
+  void clear_screplyinfo();
+  const ::Protocol::ScReplyInfo& screplyinfo() const;
+  PROTOBUF_NODISCARD ::Protocol::ScReplyInfo* release_screplyinfo();
+  ::Protocol::ScReplyInfo* mutable_screplyinfo();
+  void set_allocated_screplyinfo(::Protocol::ScReplyInfo* screplyinfo);
+  private:
+  const ::Protocol::ScReplyInfo& _internal_screplyinfo() const;
+  ::Protocol::ScReplyInfo* _internal_mutable_screplyinfo();
+  public:
+  void unsafe_arena_set_allocated_screplyinfo(
+      ::Protocol::ScReplyInfo* screplyinfo);
+  ::Protocol::ScReplyInfo* unsafe_arena_release_screplyinfo();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:Protocol.Protocol)
  private:
   class _Internal;
   void set_has_cshostinfo();
+  void set_has_screplyinfo();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -249,6 +274,7 @@ class Protocol final :
     constexpr BodyUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::Protocol::CsHostInfo* cshostinfo_;
+    ::Protocol::ScReplyInfo* screplyinfo_;
   } body_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -438,6 +464,168 @@ class CsHostInfo final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Protocol_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ScReplyInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Protocol.ScReplyInfo) */ {
+ public:
+  inline ScReplyInfo() : ScReplyInfo(nullptr) {}
+  ~ScReplyInfo() override;
+  explicit constexpr ScReplyInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScReplyInfo(const ScReplyInfo& from);
+  ScReplyInfo(ScReplyInfo&& from) noexcept
+    : ScReplyInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline ScReplyInfo& operator=(const ScReplyInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScReplyInfo& operator=(ScReplyInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScReplyInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScReplyInfo* internal_default_instance() {
+    return reinterpret_cast<const ScReplyInfo*>(
+               &_ScReplyInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(ScReplyInfo& a, ScReplyInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScReplyInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScReplyInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScReplyInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScReplyInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScReplyInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ScReplyInfo& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScReplyInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Protocol.ScReplyInfo";
+  }
+  protected:
+  explicit ScReplyInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegisterIdFieldNumber = 2,
+    kSuccessFieldNumber = 1,
+  };
+  // string registerId = 2;
+  void clear_registerid();
+  const std::string& registerid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_registerid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_registerid();
+  PROTOBUF_NODISCARD std::string* release_registerid();
+  void set_allocated_registerid(std::string* registerid);
+  private:
+  const std::string& _internal_registerid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_registerid(const std::string& value);
+  std::string* _internal_mutable_registerid();
+  public:
+
+  // bool success = 1;
+  void clear_success();
+  bool success() const;
+  void set_success(bool value);
+  private:
+  bool _internal_success() const;
+  void _internal_set_success(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Protocol.ScReplyInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr registerid_;
+  bool success_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Protocol_2eproto;
+};
 // ===================================================================
 
 
@@ -571,6 +759,80 @@ inline ::Protocol::CsHostInfo* Protocol::_internal_mutable_cshostinfo() {
 inline ::Protocol::CsHostInfo* Protocol::mutable_cshostinfo() {
   ::Protocol::CsHostInfo* _msg = _internal_mutable_cshostinfo();
   // @@protoc_insertion_point(field_mutable:Protocol.Protocol.csHostInfo)
+  return _msg;
+}
+
+// .Protocol.ScReplyInfo scReplyInfo = 3;
+inline bool Protocol::_internal_has_screplyinfo() const {
+  return body_case() == kScReplyInfo;
+}
+inline bool Protocol::has_screplyinfo() const {
+  return _internal_has_screplyinfo();
+}
+inline void Protocol::set_has_screplyinfo() {
+  _oneof_case_[0] = kScReplyInfo;
+}
+inline void Protocol::clear_screplyinfo() {
+  if (_internal_has_screplyinfo()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete body_.screplyinfo_;
+    }
+    clear_has_body();
+  }
+}
+inline ::Protocol::ScReplyInfo* Protocol::release_screplyinfo() {
+  // @@protoc_insertion_point(field_release:Protocol.Protocol.scReplyInfo)
+  if (_internal_has_screplyinfo()) {
+    clear_has_body();
+      ::Protocol::ScReplyInfo* temp = body_.screplyinfo_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    body_.screplyinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Protocol::ScReplyInfo& Protocol::_internal_screplyinfo() const {
+  return _internal_has_screplyinfo()
+      ? *body_.screplyinfo_
+      : reinterpret_cast< ::Protocol::ScReplyInfo&>(::Protocol::_ScReplyInfo_default_instance_);
+}
+inline const ::Protocol::ScReplyInfo& Protocol::screplyinfo() const {
+  // @@protoc_insertion_point(field_get:Protocol.Protocol.scReplyInfo)
+  return _internal_screplyinfo();
+}
+inline ::Protocol::ScReplyInfo* Protocol::unsafe_arena_release_screplyinfo() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Protocol.Protocol.scReplyInfo)
+  if (_internal_has_screplyinfo()) {
+    clear_has_body();
+    ::Protocol::ScReplyInfo* temp = body_.screplyinfo_;
+    body_.screplyinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Protocol::unsafe_arena_set_allocated_screplyinfo(::Protocol::ScReplyInfo* screplyinfo) {
+  clear_body();
+  if (screplyinfo) {
+    set_has_screplyinfo();
+    body_.screplyinfo_ = screplyinfo;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Protocol.Protocol.scReplyInfo)
+}
+inline ::Protocol::ScReplyInfo* Protocol::_internal_mutable_screplyinfo() {
+  if (!_internal_has_screplyinfo()) {
+    clear_body();
+    set_has_screplyinfo();
+    body_.screplyinfo_ = CreateMaybeMessage< ::Protocol::ScReplyInfo >(GetArenaForAllocation());
+  }
+  return body_.screplyinfo_;
+}
+inline ::Protocol::ScReplyInfo* Protocol::mutable_screplyinfo() {
+  ::Protocol::ScReplyInfo* _msg = _internal_mutable_screplyinfo();
+  // @@protoc_insertion_point(field_mutable:Protocol.Protocol.scReplyInfo)
   return _msg;
 }
 
@@ -740,9 +1002,86 @@ inline void CsHostInfo::set_allocated_macaddress(std::string* macaddress) {
   // @@protoc_insertion_point(field_set_allocated:Protocol.CsHostInfo.macAddress)
 }
 
+// -------------------------------------------------------------------
+
+// ScReplyInfo
+
+// bool success = 1;
+inline void ScReplyInfo::clear_success() {
+  success_ = false;
+}
+inline bool ScReplyInfo::_internal_success() const {
+  return success_;
+}
+inline bool ScReplyInfo::success() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScReplyInfo.success)
+  return _internal_success();
+}
+inline void ScReplyInfo::_internal_set_success(bool value) {
+  
+  success_ = value;
+}
+inline void ScReplyInfo::set_success(bool value) {
+  _internal_set_success(value);
+  // @@protoc_insertion_point(field_set:Protocol.ScReplyInfo.success)
+}
+
+// string registerId = 2;
+inline void ScReplyInfo::clear_registerid() {
+  registerid_.ClearToEmpty();
+}
+inline const std::string& ScReplyInfo::registerid() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScReplyInfo.registerId)
+  return _internal_registerid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScReplyInfo::set_registerid(ArgT0&& arg0, ArgT... args) {
+ 
+ registerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.ScReplyInfo.registerId)
+}
+inline std::string* ScReplyInfo::mutable_registerid() {
+  std::string* _s = _internal_mutable_registerid();
+  // @@protoc_insertion_point(field_mutable:Protocol.ScReplyInfo.registerId)
+  return _s;
+}
+inline const std::string& ScReplyInfo::_internal_registerid() const {
+  return registerid_.Get();
+}
+inline void ScReplyInfo::_internal_set_registerid(const std::string& value) {
+  
+  registerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScReplyInfo::_internal_mutable_registerid() {
+  
+  return registerid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScReplyInfo::release_registerid() {
+  // @@protoc_insertion_point(field_release:Protocol.ScReplyInfo.registerId)
+  return registerid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScReplyInfo::set_allocated_registerid(std::string* registerid) {
+  if (registerid != nullptr) {
+    
+  } else {
+    
+  }
+  registerid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), registerid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (registerid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    registerid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.ScReplyInfo.registerId)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

@@ -4,8 +4,7 @@
 #include <QTcpSocket>
 #include <QTimer>
 #include <QByteArray>
-#include "../protocol/QMessage.pb.h"
-#include "../protocol/CsHostInfo.pb.h"
+#include "../protocol/Protocol.pb.h"
 
 class NetworkHandler : public QObject
 {
@@ -17,21 +16,25 @@ public:
 	void link();
 	void clear();
 	void send(const char* data, int len);
+	void recv();
 signals:
 	void connected();
 	void disconnected();
 	void closed();
+	void received(Protocol::Protocol);
 protected:
 	void connectEvent();	// 连接成功
 	void disconnectEvent();	// 断开连接
 	void timeoutEvent();	// 进行远程TCP连接
 
 	QByteArray intToBytes(int v);
+	int bytesToInt(const QByteArray & b);
 private:
 	QTcpSocket * socket;	
 	QTimer * timer;
 	QString host;			// 连接IP
 	qint16 port;			// 连接端口号
 	bool isLinked = false;	// 是否连接
+	QByteArray buffer;		// 数据缓冲
 };
 

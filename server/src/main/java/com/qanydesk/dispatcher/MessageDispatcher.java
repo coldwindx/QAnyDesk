@@ -2,7 +2,6 @@ package com.qanydesk.dispatcher;
 
 
 import com.qanydesk.protocol.ProtocolOuter;
-import com.qanydesk.protocol.QMessageOuter;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

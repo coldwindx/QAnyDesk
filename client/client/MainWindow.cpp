@@ -54,6 +54,8 @@ void MainWindow::connectToServer()
 	connect(this, &MainWindow::closed, this, &MainWindow::quit);
 	// 发送数据
 	connect(this, &MainWindow::send, network, &NetworkHandler::send);
+	// 收到数据
+	connect(network, &NetworkHandler::received, this, &MainWindow::onRegistered);
 	network->moveToThread(thread);
 	thread->start();
 }
@@ -85,6 +87,21 @@ void MainWindow::onDisconnected()
 {
 	ui->stateLamp->setStyleSheet("background-color:rgb(185,54,54);border-radius:15px");
 	ui->stateLabel->setText(QSTRING("连接失败，启动重启。。。"));
+}
+
+void MainWindow::onRegistered(Protocol::Protocol protocol)
+{
+	if ("ScReplyInfo" != protocol.type())
+	{
+		qDebug() << "错误消息！"; return;
+	}
+	Protocol::ScReplyInfo replyInfo = protocol.screplyinfo();
+	if (replyInfo.success())
+	{
+		ui->idLabel->setText(QString::fromStdString(replyInfo.registerid()));
+		return;
+	}
+	ui->idLabel->setText("--- --- ---");
 }
 
 void MainWindow::quit()

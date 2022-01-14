@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 public class NettyServerHandlerEnd extends ChannelInboundHandlerAdapter {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-//    @Autowired
-//    private NettyChannelManager nettyChannelManager;
+    @Autowired
+    private NettyChannelManager nettyChannelManager;
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception{
@@ -30,7 +30,7 @@ public class NettyServerHandlerEnd extends ChannelInboundHandlerAdapter {
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception{
         logger.info(ctx.channel().remoteAddress() + "网络已断开！");
-//        nettyChannelManager.remove(ctx.channel());
+        nettyChannelManager.remove(ctx.channel());
         ctx.close();
     }
 }

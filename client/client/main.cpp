@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	if (isAlreadyRun()) return 0;
 #endif
 	GOOGLE_PROTOBUF_VERIFY_VERSION;         // 启用protobuf
+	qRegisterMetaType<Protocol::Protocol>("Protocol::Protocol");
 	QApplication a(argc, argv);
 	a.setQuitOnLastWindowClosed(false);     // 主窗口关闭，程序不退出
 	MainWindow w;

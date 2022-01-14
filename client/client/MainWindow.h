@@ -30,6 +30,7 @@ protected:
 
 	void onConnected();
 	void onDisconnected();
+	void onRegistered(Protocol::Protocol protocol);
 	void quit();
 private:
     Ui::MainWindow *ui;

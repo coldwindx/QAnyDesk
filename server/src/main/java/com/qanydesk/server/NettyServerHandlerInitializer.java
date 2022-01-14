@@ -1,13 +1,14 @@
 package com.qanydesk.server;
 
 import com.qanydesk.codec.ProtocolDecoder;
+import com.qanydesk.codec.ProtocolEncoder;
 import com.qanydesk.dispatcher.MessageDispatcher;
 import com.qanydesk.protocol.ProtocolOuter;
-import com.qanydesk.protocol.QMessageOuter;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,9 +27,9 @@ public class NettyServerHandlerInitializer extends ChannelInitializer<Channel> {
                 // 入站，处理粘包拆包
                 .addLast(new ProtocolDecoder())
                 .addLast("ProtocolProtobufDecoder", new ProtobufDecoder(ProtocolOuter.Protocol.getDefaultInstance()))
-//                // 出站
-//                .addLast(new ProtobufFixed32LengthFieldPrependerRedefine())
-//                .addLast(new ProtobufEncoder())
+                // 出站
+                .addLast(new ProtocolEncoder())
+                .addLast(new ProtobufEncoder())
                 .addLast(messageDispatcher)     // 消息分发器
                 .addLast(nettyServerHandlerEnd);
     }

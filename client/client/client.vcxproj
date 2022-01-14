@@ -96,14 +96,13 @@
     <ClCompile Include="common\DeviceInfo.cpp" />
     <ClCompile Include="common\NetworkHandler.cpp" />
     <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="protocol\CsHostInfo.pb.cc" />
     <ClCompile Include="protocol\Protocol.pb.cc" />
-    <ClCompile Include="protocol\QMessage.pb.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="protocol\CsHostInfo.pb.h" />
+    <ClInclude Include="dispatcher\MessageHandlerContainer.h" />
     <ClInclude Include="protocol\Protocol.pb.h" />
+    <ClInclude Include="protocol\MessageHandler.h" />
     <QtMoc Include="common\DeviceInfo.h" />
     <QtMoc Include="common\NetworkHandler.h" />
     <QtMoc Include="MainWindow.h" />

@@ -9,6 +9,7 @@ message Protocol {
     string type = 1;
     oneof body{
         CsHostInfo csHostInfo = 2;
+        ScReplyInfo scReplyInfo = 3;
     }
 }
 
@@ -17,3 +18,9 @@ message CsHostInfo {
     string diskDeviceId = 2;        // 硬盘ID
     string macAddress = 3;
 }
+// 注册信息
+message ScReplyInfo{
+    bool success = 1;
+    string registerId = 2;
+}
+

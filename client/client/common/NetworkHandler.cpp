@@ -19,6 +19,7 @@ void NetworkHandler::link()
 	// 设置监听
 	connect(socket, &QTcpSocket::connected, this, &NetworkHandler::connectEvent);
 	connect(socket, &QTcpSocket::disconnected, this, &NetworkHandler::disconnectEvent);
+	connect(socket, &QTcpSocket::readyRead, this, &NetworkHandler::recv);
 	// 开启连接定时器
 	connect(timer, &QTimer::timeout, this, &NetworkHandler::timeoutEvent);
 	timer->start(5000);
@@ -42,16 +43,6 @@ void NetworkHandler::clear()
 	emit closed();
 }
 
-//void send()
-//{
-//	CsHostInfo::CsHostInfo info;
-//	info.set_cpuid("1234");
-//	info.set_deviceid("erty");
-//	info.set_macaddress("97876");
-//	info.set_active(true);
-//	//info.SerializeToString(&msg);
-//}
-
 void NetworkHandler::send(const char * data, int len)
 {
 	qDebug() << QSTRING("发送数据：") << QString::fromStdString(data);
@@ -60,6 +51,34 @@ void NetworkHandler::send(const char * data, int len)
 	socket->flush();
 	if (-1 == ok)
 		qDebug() << "Fail to send data to server!";
+}
+
+void NetworkHandler::recv()
+{
+	if (socket->bytesAvailable() < 0)
+		return;
+	QByteArray msg = socket->readAll();
+	buffer.append(msg);
+	int bsize = buffer.size();
+	int len = 0;
+	while (bsize)
+	{
+		// <1> 处理粘包和拆包
+		if (bsize < sizeof(quint32))
+			break;
+		len = bytesToInt(buffer);
+		if (bsize < sizeof(quint32) + len)
+			break;
+		QByteArray buf = buffer.mid(sizeof(quint32), len);
+		// <2> 反序列化
+		Protocol::Protocol protocol;
+		protocol.ParseFromString(buf.toStdString());
+		// <3> 处理协议
+		emit received(protocol);
+		// <4> 更新数据
+		buffer = buffer.right(bsize - sizeof(quint32) - len);
+		bsize = buffer.size();
+	}
 }
 
 void NetworkHandler::connectEvent()
@@ -95,4 +114,9 @@ QByteArray NetworkHandler::intToBytes(int n)
 	buf[1] = static_cast<quint16>(n >> 16 & 0xff);
 	buf[0] = static_cast<quint16>(n >> 24 & 0xff);
 	return buf;
+}
+
+int NetworkHandler::bytesToInt(const QByteArray & b)
+{
+	return b[3] & 0xff | (b[2] & 0xff) << 8 | (b[1] & 0xff) << 16 | (b[0] & 0xff) << 24;
 }

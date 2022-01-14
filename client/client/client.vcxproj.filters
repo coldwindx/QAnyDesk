@@ -36,13 +36,13 @@
     <Filter Include="protocol">
       <UniqueIdentifier>{fbe7295d-e5cc-4ac4-9a03-4fb4a3c24f74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="dispatcher">
+      <UniqueIdentifier>{df936f36-e1c8-4b60-9c40-131c75015c6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol\QMessage.pb.cc">
-      <Filter>Source Files\protocol</Filter>
     </ClCompile>
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
@@ -52,9 +52,6 @@
     </ClCompile>
     <ClCompile Include="common\DeviceInfo.cpp">
       <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol\CsHostInfo.pb.cc">
-      <Filter>protocol</Filter>
     </ClCompile>
     <ClCompile Include="protocol\Protocol.pb.cc">
       <Filter>protocol</Filter>
@@ -67,11 +64,14 @@
     <ClInclude Include="common\Global.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="protocol\CsHostInfo.pb.h">
-      <Filter>protocol</Filter>
-    </ClInclude>
     <ClInclude Include="protocol\Protocol.pb.h">
       <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="dispatcher\MessageHandlerContainer.h">
+      <Filter>dispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\MessageHandler.h">
+      <Filter>dispatcher</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

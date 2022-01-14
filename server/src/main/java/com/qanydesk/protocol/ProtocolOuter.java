@@ -45,6 +45,21 @@ public final class ProtocolOuter {
      */
     com.qanydesk.protocol.ProtocolOuter.CsHostInfoOrBuilder getCsHostInfoOrBuilder();
 
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     * @return Whether the scReplyInfo field is set.
+     */
+    boolean hasScReplyInfo();
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     * @return The scReplyInfo.
+     */
+    com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getScReplyInfo();
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     */
+    com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder getScReplyInfoOrBuilder();
+
     public com.qanydesk.protocol.ProtocolOuter.Protocol.BodyCase getBodyCase();
   }
   /**
@@ -117,6 +132,20 @@ public final class ProtocolOuter {
               bodyCase_ = 2;
               break;
             }
+            case 26: {
+              com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder subBuilder = null;
+              if (bodyCase_ == 3) {
+                subBuilder = ((com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 3;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -155,6 +184,7 @@ public final class ProtocolOuter {
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       CSHOSTINFO(2),
+      SCREPLYINFO(3),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -173,6 +203,7 @@ public final class ProtocolOuter {
       public static BodyCase forNumber(int value) {
         switch (value) {
           case 2: return CSHOSTINFO;
+          case 3: return SCREPLYINFO;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -257,6 +288,37 @@ public final class ProtocolOuter {
       return com.qanydesk.protocol.ProtocolOuter.CsHostInfo.getDefaultInstance();
     }
 
+    public static final int SCREPLYINFO_FIELD_NUMBER = 3;
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     * @return Whether the scReplyInfo field is set.
+     */
+    @java.lang.Override
+    public boolean hasScReplyInfo() {
+      return bodyCase_ == 3;
+    }
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     * @return The scReplyInfo.
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getScReplyInfo() {
+      if (bodyCase_ == 3) {
+         return (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+    }
+    /**
+     * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder getScReplyInfoOrBuilder() {
+      if (bodyCase_ == 3) {
+         return (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -277,6 +339,9 @@ public final class ProtocolOuter {
       if (bodyCase_ == 2) {
         output.writeMessage(2, (com.qanydesk.protocol.ProtocolOuter.CsHostInfo) body_);
       }
+      if (bodyCase_ == 3) {
+        output.writeMessage(3, (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -292,6 +357,10 @@ public final class ProtocolOuter {
       if (bodyCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (com.qanydesk.protocol.ProtocolOuter.CsHostInfo) body_);
+      }
+      if (bodyCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -316,6 +385,10 @@ public final class ProtocolOuter {
           if (!getCsHostInfo()
               .equals(other.getCsHostInfo())) return false;
           break;
+        case 3:
+          if (!getScReplyInfo()
+              .equals(other.getScReplyInfo())) return false;
+          break;
         case 0:
         default:
       }
@@ -336,6 +409,10 @@ public final class ProtocolOuter {
         case 2:
           hash = (37 * hash) + CSHOSTINFO_FIELD_NUMBER;
           hash = (53 * hash) + getCsHostInfo().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + SCREPLYINFO_FIELD_NUMBER;
+          hash = (53 * hash) + getScReplyInfo().hashCode();
           break;
         case 0:
         default:
@@ -515,6 +592,13 @@ public final class ProtocolOuter {
             result.body_ = csHostInfoBuilder_.build();
           }
         }
+        if (bodyCase_ == 3) {
+          if (scReplyInfoBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = scReplyInfoBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -571,6 +655,10 @@ public final class ProtocolOuter {
         switch (other.getBodyCase()) {
           case CSHOSTINFO: {
             mergeCsHostInfo(other.getCsHostInfo());
+            break;
+          }
+          case SCREPLYINFO: {
+            mergeScReplyInfo(other.getScReplyInfo());
             break;
           }
           case BODY_NOT_SET: {
@@ -836,6 +924,147 @@ public final class ProtocolOuter {
         bodyCase_ = 2;
         onChanged();;
         return csHostInfoBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.ScReplyInfo, com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder, com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder> scReplyInfoBuilder_;
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       * @return Whether the scReplyInfo field is set.
+       */
+      @java.lang.Override
+      public boolean hasScReplyInfo() {
+        return bodyCase_ == 3;
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       * @return The scReplyInfo.
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getScReplyInfo() {
+        if (scReplyInfoBuilder_ == null) {
+          if (bodyCase_ == 3) {
+            return (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 3) {
+            return scReplyInfoBuilder_.getMessage();
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      public Builder setScReplyInfo(com.qanydesk.protocol.ProtocolOuter.ScReplyInfo value) {
+        if (scReplyInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          scReplyInfoBuilder_.setMessage(value);
+        }
+        bodyCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      public Builder setScReplyInfo(
+          com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder builderForValue) {
+        if (scReplyInfoBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          scReplyInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      public Builder mergeScReplyInfo(com.qanydesk.protocol.ProtocolOuter.ScReplyInfo value) {
+        if (scReplyInfoBuilder_ == null) {
+          if (bodyCase_ == 3 &&
+              body_ != com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance()) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.newBuilder((com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 3) {
+            scReplyInfoBuilder_.mergeFrom(value);
+          }
+          scReplyInfoBuilder_.setMessage(value);
+        }
+        bodyCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      public Builder clearScReplyInfo() {
+        if (scReplyInfoBuilder_ == null) {
+          if (bodyCase_ == 3) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 3) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          scReplyInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder getScReplyInfoBuilder() {
+        return getScReplyInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder getScReplyInfoOrBuilder() {
+        if ((bodyCase_ == 3) && (scReplyInfoBuilder_ != null)) {
+          return scReplyInfoBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 3) {
+            return (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.ScReplyInfo scReplyInfo = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.ScReplyInfo, com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder, com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder> 
+          getScReplyInfoFieldBuilder() {
+        if (scReplyInfoBuilder_ == null) {
+          if (!(bodyCase_ == 3)) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+          }
+          scReplyInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.qanydesk.protocol.ProtocolOuter.ScReplyInfo, com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder, com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder>(
+                  (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 3;
+        onChanged();;
+        return scReplyInfoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1794,6 +2023,653 @@ public final class ProtocolOuter {
 
   }
 
+  public interface ScReplyInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Protocol.ScReplyInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool success = 1;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
+
+    /**
+     * <code>string registerId = 2;</code>
+     * @return The registerId.
+     */
+    java.lang.String getRegisterId();
+    /**
+     * <code>string registerId = 2;</code>
+     * @return The bytes for registerId.
+     */
+    com.google.protobuf.ByteString
+        getRegisterIdBytes();
+  }
+  /**
+   * <pre>
+   * 注册信息
+   * </pre>
+   *
+   * Protobuf type {@code Protocol.ScReplyInfo}
+   */
+  public static final class ScReplyInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Protocol.ScReplyInfo)
+      ScReplyInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ScReplyInfo.newBuilder() to construct.
+    private ScReplyInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ScReplyInfo() {
+      registerId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ScReplyInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScReplyInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              success_ = input.readBool();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              registerId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScReplyInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScReplyInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.class, com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder.class);
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_;
+    /**
+     * <code>bool success = 1;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int REGISTERID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object registerId_;
+    /**
+     * <code>string registerId = 2;</code>
+     * @return The registerId.
+     */
+    @java.lang.Override
+    public java.lang.String getRegisterId() {
+      java.lang.Object ref = registerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        registerId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string registerId = 2;</code>
+     * @return The bytes for registerId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegisterIdBytes() {
+      java.lang.Object ref = registerId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        registerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (success_ != false) {
+        output.writeBool(1, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(registerId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, registerId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(registerId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, registerId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.qanydesk.protocol.ProtocolOuter.ScReplyInfo)) {
+        return super.equals(obj);
+      }
+      com.qanydesk.protocol.ProtocolOuter.ScReplyInfo other = (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) obj;
+
+      if (getSuccess()
+          != other.getSuccess()) return false;
+      if (!getRegisterId()
+          .equals(other.getRegisterId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
+      hash = (37 * hash) + REGISTERID_FIELD_NUMBER;
+      hash = (53 * hash) + getRegisterId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.qanydesk.protocol.ProtocolOuter.ScReplyInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 注册信息
+     * </pre>
+     *
+     * Protobuf type {@code Protocol.ScReplyInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Protocol.ScReplyInfo)
+        com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScReplyInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScReplyInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.class, com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.Builder.class);
+      }
+
+      // Construct using com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        success_ = false;
+
+        registerId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScReplyInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getDefaultInstanceForType() {
+        return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo build() {
+        com.qanydesk.protocol.ProtocolOuter.ScReplyInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo buildPartial() {
+        com.qanydesk.protocol.ProtocolOuter.ScReplyInfo result = new com.qanydesk.protocol.ProtocolOuter.ScReplyInfo(this);
+        result.success_ = success_;
+        result.registerId_ = registerId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) {
+          return mergeFrom((com.qanydesk.protocol.ProtocolOuter.ScReplyInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.qanydesk.protocol.ProtocolOuter.ScReplyInfo other) {
+        if (other == com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance()) return this;
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        if (!other.getRegisterId().isEmpty()) {
+          registerId_ = other.registerId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.qanydesk.protocol.ProtocolOuter.ScReplyInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean success_ ;
+      /**
+       * <code>bool success = 1;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>bool success = 1;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool success = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object registerId_ = "";
+      /**
+       * <code>string registerId = 2;</code>
+       * @return The registerId.
+       */
+      public java.lang.String getRegisterId() {
+        java.lang.Object ref = registerId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          registerId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string registerId = 2;</code>
+       * @return The bytes for registerId.
+       */
+      public com.google.protobuf.ByteString
+          getRegisterIdBytes() {
+        java.lang.Object ref = registerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          registerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string registerId = 2;</code>
+       * @param value The registerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegisterId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        registerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string registerId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegisterId() {
+        
+        registerId_ = getDefaultInstance().getRegisterId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string registerId = 2;</code>
+       * @param value The bytes for registerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegisterIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        registerId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Protocol.ScReplyInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:Protocol.ScReplyInfo)
+    private static final com.qanydesk.protocol.ProtocolOuter.ScReplyInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.qanydesk.protocol.ProtocolOuter.ScReplyInfo();
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ScReplyInfo>
+        PARSER = new com.google.protobuf.AbstractParser<ScReplyInfo>() {
+      @java.lang.Override
+      public ScReplyInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScReplyInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScReplyInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ScReplyInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScReplyInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Protocol_Protocol_descriptor;
   private static final 
@@ -1804,6 +2680,11 @@ public final class ProtocolOuter {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Protocol_CsHostInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Protocol_ScReplyInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Protocol_ScReplyInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1813,12 +2694,15 @@ public final class ProtocolOuter {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Protocol.proto\022\010Protocol\"L\n\010Protocol\022\014" +
+      "\n\016Protocol.proto\022\010Protocol\"z\n\010Protocol\022\014" +
       "\n\004type\030\001 \001(\t\022*\n\ncsHostInfo\030\002 \001(\0132\024.Proto" +
-      "col.CsHostInfoH\000B\006\n\004body\"E\n\nCsHostInfo\022\r" +
-      "\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001(\t\022\022\n\nm" +
-      "acAddress\030\003 \001(\tB(\n\025com.qanydesk.protocol" +
-      "B\rProtocolOuterH\001b\006proto3"
+      "col.CsHostInfoH\000\022,\n\013scReplyInfo\030\003 \001(\0132\025." +
+      "Protocol.ScReplyInfoH\000B\006\n\004body\"E\n\nCsHost" +
+      "Info\022\r\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001(" +
+      "\t\022\022\n\nmacAddress\030\003 \001(\t\"2\n\013ScReplyInfo\022\017\n\007" +
+      "success\030\001 \001(\010\022\022\n\nregisterId\030\002 \001(\tB(\n\025com" +
+      ".qanydesk.protocolB\rProtocolOuterH\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1829,13 +2713,19 @@ public final class ProtocolOuter {
     internal_static_Protocol_Protocol_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Protocol_Protocol_descriptor,
-        new java.lang.String[] { "Type", "CsHostInfo", "Body", });
+        new java.lang.String[] { "Type", "CsHostInfo", "ScReplyInfo", "Body", });
     internal_static_Protocol_CsHostInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Protocol_CsHostInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Protocol_CsHostInfo_descriptor,
         new java.lang.String[] { "CpuId", "DiskDeviceId", "MacAddress", });
+    internal_static_Protocol_ScReplyInfo_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Protocol_ScReplyInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Protocol_ScReplyInfo_descriptor,
+        new java.lang.String[] { "Success", "RegisterId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
