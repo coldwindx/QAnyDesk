@@ -34,9 +34,19 @@ public class NettyChannelManager {
 
     public void remove(Channel channel) {
         String  hostId = deviceMap.get(channel.id());
+        if(hostId == null || hostId.isEmpty())
+            return;
         deviceMap.remove(channel.id());
         hostMap.remove(hostId);
         --count;
         logger.info("设备[{}]注销！当前在线设备：[{}]", hostId, count);
+    }
+
+    public QAnyHost getUser(String hostId) throws Exception {
+        if(!hostMap.containsKey(hostId)){
+            logger.error("设备[{}]不在线！", hostId);
+            throw new Exception(String.format("设备[%s]不在线！", hostId));
+        }
+        return hostMap.get(hostId);
     }
 }

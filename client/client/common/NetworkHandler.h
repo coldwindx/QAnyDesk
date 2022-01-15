@@ -13,9 +13,11 @@ public:
 	explicit NetworkHandler(const QString & host, qint16 port, QObject * parent = nullptr);
 	~NetworkHandler();
 
+	bool isLinked() const;
+
 	void link();
 	void clear();
-	void send(const char* data, int len);
+	void send(Protocol::Protocol protocol);
 	void recv();
 signals:
 	void connected();
@@ -34,7 +36,7 @@ private:
 	QTimer * timer;
 	QString host;			// 连接IP
 	qint16 port;			// 连接端口号
-	bool isLinked = false;	// 是否连接
+	bool linked = false;	// 是否连接
 	QByteArray buffer;		// 数据缓冲
 };
 

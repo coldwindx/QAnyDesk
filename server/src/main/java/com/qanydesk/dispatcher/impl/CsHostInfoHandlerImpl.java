@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CsHostInfoHandlerImpl implements MessageHandler<ProtocolOuter.Protocol> {
+public class CsHostInfoHandlerImpl implements MessageHandler {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired

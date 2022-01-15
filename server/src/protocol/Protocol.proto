@@ -10,17 +10,33 @@ message Protocol {
     oneof body{
         CsHostInfo csHostInfo = 2;
         ScReplyInfo scReplyInfo = 3;
+        CsRequestAuth csRequestAuth = 4;
+        ScResponseAuth scResponseAuth = 5;
     }
 }
-
+// 注册请求
 message CsHostInfo {
     string cpuId = 1;
     string diskDeviceId = 2;        // 硬盘ID
     string macAddress = 3;
 }
-// 注册信息
+// 注册结果
 message ScReplyInfo{
     bool success = 1;
     string registerId = 2;
 }
+// 认证请求
+message CsRequestAuth{
+    string sourceId = 1;
+    string targetId = 2;
+    string password = 3;
+}
+// 认证响应
+message ScResponseAuth{
+    string sourceId = 1;
+    string targetId = 2;
+    bool success = 3;
+    string msg = 4;
+}
+
 

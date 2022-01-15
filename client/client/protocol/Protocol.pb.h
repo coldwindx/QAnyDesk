@@ -46,7 +46,7 @@ struct TableStruct_Protocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,17 +57,25 @@ namespace Protocol {
 class CsHostInfo;
 struct CsHostInfoDefaultTypeInternal;
 extern CsHostInfoDefaultTypeInternal _CsHostInfo_default_instance_;
+class CsRequestAuth;
+struct CsRequestAuthDefaultTypeInternal;
+extern CsRequestAuthDefaultTypeInternal _CsRequestAuth_default_instance_;
 class Protocol;
 struct ProtocolDefaultTypeInternal;
 extern ProtocolDefaultTypeInternal _Protocol_default_instance_;
 class ScReplyInfo;
 struct ScReplyInfoDefaultTypeInternal;
 extern ScReplyInfoDefaultTypeInternal _ScReplyInfo_default_instance_;
+class ScResponseAuth;
+struct ScResponseAuthDefaultTypeInternal;
+extern ScResponseAuthDefaultTypeInternal _ScResponseAuth_default_instance_;
 }  // namespace Protocol
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Protocol::CsHostInfo* Arena::CreateMaybeMessage<::Protocol::CsHostInfo>(Arena*);
+template<> ::Protocol::CsRequestAuth* Arena::CreateMaybeMessage<::Protocol::CsRequestAuth>(Arena*);
 template<> ::Protocol::Protocol* Arena::CreateMaybeMessage<::Protocol::Protocol>(Arena*);
 template<> ::Protocol::ScReplyInfo* Arena::CreateMaybeMessage<::Protocol::ScReplyInfo>(Arena*);
+template<> ::Protocol::ScResponseAuth* Arena::CreateMaybeMessage<::Protocol::ScResponseAuth>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Protocol {
 
@@ -119,6 +127,8 @@ class Protocol final :
   enum BodyCase {
     kCsHostInfo = 2,
     kScReplyInfo = 3,
+    kCsRequestAuth = 4,
+    kScResponseAuth = 5,
     BODY_NOT_SET = 0,
   };
 
@@ -204,6 +214,8 @@ class Protocol final :
     kTypeFieldNumber = 1,
     kCsHostInfoFieldNumber = 2,
     kScReplyInfoFieldNumber = 3,
+    kCsRequestAuthFieldNumber = 4,
+    kScResponseAuthFieldNumber = 5,
   };
   // string type = 1;
   void clear_type();
@@ -255,6 +267,42 @@ class Protocol final :
       ::Protocol::ScReplyInfo* screplyinfo);
   ::Protocol::ScReplyInfo* unsafe_arena_release_screplyinfo();
 
+  // .Protocol.CsRequestAuth csRequestAuth = 4;
+  bool has_csrequestauth() const;
+  private:
+  bool _internal_has_csrequestauth() const;
+  public:
+  void clear_csrequestauth();
+  const ::Protocol::CsRequestAuth& csrequestauth() const;
+  PROTOBUF_NODISCARD ::Protocol::CsRequestAuth* release_csrequestauth();
+  ::Protocol::CsRequestAuth* mutable_csrequestauth();
+  void set_allocated_csrequestauth(::Protocol::CsRequestAuth* csrequestauth);
+  private:
+  const ::Protocol::CsRequestAuth& _internal_csrequestauth() const;
+  ::Protocol::CsRequestAuth* _internal_mutable_csrequestauth();
+  public:
+  void unsafe_arena_set_allocated_csrequestauth(
+      ::Protocol::CsRequestAuth* csrequestauth);
+  ::Protocol::CsRequestAuth* unsafe_arena_release_csrequestauth();
+
+  // .Protocol.ScResponseAuth scResponseAuth = 5;
+  bool has_scresponseauth() const;
+  private:
+  bool _internal_has_scresponseauth() const;
+  public:
+  void clear_scresponseauth();
+  const ::Protocol::ScResponseAuth& scresponseauth() const;
+  PROTOBUF_NODISCARD ::Protocol::ScResponseAuth* release_scresponseauth();
+  ::Protocol::ScResponseAuth* mutable_scresponseauth();
+  void set_allocated_scresponseauth(::Protocol::ScResponseAuth* scresponseauth);
+  private:
+  const ::Protocol::ScResponseAuth& _internal_scresponseauth() const;
+  ::Protocol::ScResponseAuth* _internal_mutable_scresponseauth();
+  public:
+  void unsafe_arena_set_allocated_scresponseauth(
+      ::Protocol::ScResponseAuth* scresponseauth);
+  ::Protocol::ScResponseAuth* unsafe_arena_release_scresponseauth();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:Protocol.Protocol)
@@ -262,6 +310,8 @@ class Protocol final :
   class _Internal;
   void set_has_cshostinfo();
   void set_has_screplyinfo();
+  void set_has_csrequestauth();
+  void set_has_scresponseauth();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -275,6 +325,8 @@ class Protocol final :
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::Protocol::CsHostInfo* cshostinfo_;
     ::Protocol::ScReplyInfo* screplyinfo_;
+    ::Protocol::CsRequestAuth* csrequestauth_;
+    ::Protocol::ScResponseAuth* scresponseauth_;
   } body_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -626,6 +678,383 @@ class ScReplyInfo final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Protocol_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CsRequestAuth final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Protocol.CsRequestAuth) */ {
+ public:
+  inline CsRequestAuth() : CsRequestAuth(nullptr) {}
+  ~CsRequestAuth() override;
+  explicit constexpr CsRequestAuth(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CsRequestAuth(const CsRequestAuth& from);
+  CsRequestAuth(CsRequestAuth&& from) noexcept
+    : CsRequestAuth() {
+    *this = ::std::move(from);
+  }
+
+  inline CsRequestAuth& operator=(const CsRequestAuth& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CsRequestAuth& operator=(CsRequestAuth&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CsRequestAuth& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CsRequestAuth* internal_default_instance() {
+    return reinterpret_cast<const CsRequestAuth*>(
+               &_CsRequestAuth_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CsRequestAuth& a, CsRequestAuth& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CsRequestAuth* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CsRequestAuth* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CsRequestAuth* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CsRequestAuth>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CsRequestAuth& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CsRequestAuth& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CsRequestAuth* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Protocol.CsRequestAuth";
+  }
+  protected:
+  explicit CsRequestAuth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSourceIdFieldNumber = 1,
+    kTargetIdFieldNumber = 2,
+    kPasswordFieldNumber = 3,
+  };
+  // string sourceId = 1;
+  void clear_sourceid();
+  const std::string& sourceid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sourceid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sourceid();
+  PROTOBUF_NODISCARD std::string* release_sourceid();
+  void set_allocated_sourceid(std::string* sourceid);
+  private:
+  const std::string& _internal_sourceid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sourceid(const std::string& value);
+  std::string* _internal_mutable_sourceid();
+  public:
+
+  // string targetId = 2;
+  void clear_targetid();
+  const std::string& targetid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_targetid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_targetid();
+  PROTOBUF_NODISCARD std::string* release_targetid();
+  void set_allocated_targetid(std::string* targetid);
+  private:
+  const std::string& _internal_targetid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_targetid(const std::string& value);
+  std::string* _internal_mutable_targetid();
+  public:
+
+  // string password = 3;
+  void clear_password();
+  const std::string& password() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_password(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_password();
+  PROTOBUF_NODISCARD std::string* release_password();
+  void set_allocated_password(std::string* password);
+  private:
+  const std::string& _internal_password() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_password(const std::string& value);
+  std::string* _internal_mutable_password();
+  public:
+
+  // @@protoc_insertion_point(class_scope:Protocol.CsRequestAuth)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourceid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr targetid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr password_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Protocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ScResponseAuth final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Protocol.ScResponseAuth) */ {
+ public:
+  inline ScResponseAuth() : ScResponseAuth(nullptr) {}
+  ~ScResponseAuth() override;
+  explicit constexpr ScResponseAuth(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScResponseAuth(const ScResponseAuth& from);
+  ScResponseAuth(ScResponseAuth&& from) noexcept
+    : ScResponseAuth() {
+    *this = ::std::move(from);
+  }
+
+  inline ScResponseAuth& operator=(const ScResponseAuth& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScResponseAuth& operator=(ScResponseAuth&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScResponseAuth& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScResponseAuth* internal_default_instance() {
+    return reinterpret_cast<const ScResponseAuth*>(
+               &_ScResponseAuth_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(ScResponseAuth& a, ScResponseAuth& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScResponseAuth* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScResponseAuth* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScResponseAuth* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScResponseAuth>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScResponseAuth& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ScResponseAuth& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScResponseAuth* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Protocol.ScResponseAuth";
+  }
+  protected:
+  explicit ScResponseAuth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSourceIdFieldNumber = 1,
+    kTargetIdFieldNumber = 2,
+    kMsgFieldNumber = 4,
+    kSuccessFieldNumber = 3,
+  };
+  // string sourceId = 1;
+  void clear_sourceid();
+  const std::string& sourceid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sourceid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sourceid();
+  PROTOBUF_NODISCARD std::string* release_sourceid();
+  void set_allocated_sourceid(std::string* sourceid);
+  private:
+  const std::string& _internal_sourceid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sourceid(const std::string& value);
+  std::string* _internal_mutable_sourceid();
+  public:
+
+  // string targetId = 2;
+  void clear_targetid();
+  const std::string& targetid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_targetid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_targetid();
+  PROTOBUF_NODISCARD std::string* release_targetid();
+  void set_allocated_targetid(std::string* targetid);
+  private:
+  const std::string& _internal_targetid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_targetid(const std::string& value);
+  std::string* _internal_mutable_targetid();
+  public:
+
+  // string msg = 4;
+  void clear_msg();
+  const std::string& msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // bool success = 3;
+  void clear_success();
+  bool success() const;
+  void set_success(bool value);
+  private:
+  bool _internal_success() const;
+  void _internal_set_success(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Protocol.ScResponseAuth)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourceid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr targetid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+  bool success_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Protocol_2eproto;
+};
 // ===================================================================
 
 
@@ -833,6 +1262,154 @@ inline ::Protocol::ScReplyInfo* Protocol::_internal_mutable_screplyinfo() {
 inline ::Protocol::ScReplyInfo* Protocol::mutable_screplyinfo() {
   ::Protocol::ScReplyInfo* _msg = _internal_mutable_screplyinfo();
   // @@protoc_insertion_point(field_mutable:Protocol.Protocol.scReplyInfo)
+  return _msg;
+}
+
+// .Protocol.CsRequestAuth csRequestAuth = 4;
+inline bool Protocol::_internal_has_csrequestauth() const {
+  return body_case() == kCsRequestAuth;
+}
+inline bool Protocol::has_csrequestauth() const {
+  return _internal_has_csrequestauth();
+}
+inline void Protocol::set_has_csrequestauth() {
+  _oneof_case_[0] = kCsRequestAuth;
+}
+inline void Protocol::clear_csrequestauth() {
+  if (_internal_has_csrequestauth()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete body_.csrequestauth_;
+    }
+    clear_has_body();
+  }
+}
+inline ::Protocol::CsRequestAuth* Protocol::release_csrequestauth() {
+  // @@protoc_insertion_point(field_release:Protocol.Protocol.csRequestAuth)
+  if (_internal_has_csrequestauth()) {
+    clear_has_body();
+      ::Protocol::CsRequestAuth* temp = body_.csrequestauth_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    body_.csrequestauth_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Protocol::CsRequestAuth& Protocol::_internal_csrequestauth() const {
+  return _internal_has_csrequestauth()
+      ? *body_.csrequestauth_
+      : reinterpret_cast< ::Protocol::CsRequestAuth&>(::Protocol::_CsRequestAuth_default_instance_);
+}
+inline const ::Protocol::CsRequestAuth& Protocol::csrequestauth() const {
+  // @@protoc_insertion_point(field_get:Protocol.Protocol.csRequestAuth)
+  return _internal_csrequestauth();
+}
+inline ::Protocol::CsRequestAuth* Protocol::unsafe_arena_release_csrequestauth() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Protocol.Protocol.csRequestAuth)
+  if (_internal_has_csrequestauth()) {
+    clear_has_body();
+    ::Protocol::CsRequestAuth* temp = body_.csrequestauth_;
+    body_.csrequestauth_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Protocol::unsafe_arena_set_allocated_csrequestauth(::Protocol::CsRequestAuth* csrequestauth) {
+  clear_body();
+  if (csrequestauth) {
+    set_has_csrequestauth();
+    body_.csrequestauth_ = csrequestauth;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Protocol.Protocol.csRequestAuth)
+}
+inline ::Protocol::CsRequestAuth* Protocol::_internal_mutable_csrequestauth() {
+  if (!_internal_has_csrequestauth()) {
+    clear_body();
+    set_has_csrequestauth();
+    body_.csrequestauth_ = CreateMaybeMessage< ::Protocol::CsRequestAuth >(GetArenaForAllocation());
+  }
+  return body_.csrequestauth_;
+}
+inline ::Protocol::CsRequestAuth* Protocol::mutable_csrequestauth() {
+  ::Protocol::CsRequestAuth* _msg = _internal_mutable_csrequestauth();
+  // @@protoc_insertion_point(field_mutable:Protocol.Protocol.csRequestAuth)
+  return _msg;
+}
+
+// .Protocol.ScResponseAuth scResponseAuth = 5;
+inline bool Protocol::_internal_has_scresponseauth() const {
+  return body_case() == kScResponseAuth;
+}
+inline bool Protocol::has_scresponseauth() const {
+  return _internal_has_scresponseauth();
+}
+inline void Protocol::set_has_scresponseauth() {
+  _oneof_case_[0] = kScResponseAuth;
+}
+inline void Protocol::clear_scresponseauth() {
+  if (_internal_has_scresponseauth()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete body_.scresponseauth_;
+    }
+    clear_has_body();
+  }
+}
+inline ::Protocol::ScResponseAuth* Protocol::release_scresponseauth() {
+  // @@protoc_insertion_point(field_release:Protocol.Protocol.scResponseAuth)
+  if (_internal_has_scresponseauth()) {
+    clear_has_body();
+      ::Protocol::ScResponseAuth* temp = body_.scresponseauth_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    body_.scresponseauth_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Protocol::ScResponseAuth& Protocol::_internal_scresponseauth() const {
+  return _internal_has_scresponseauth()
+      ? *body_.scresponseauth_
+      : reinterpret_cast< ::Protocol::ScResponseAuth&>(::Protocol::_ScResponseAuth_default_instance_);
+}
+inline const ::Protocol::ScResponseAuth& Protocol::scresponseauth() const {
+  // @@protoc_insertion_point(field_get:Protocol.Protocol.scResponseAuth)
+  return _internal_scresponseauth();
+}
+inline ::Protocol::ScResponseAuth* Protocol::unsafe_arena_release_scresponseauth() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Protocol.Protocol.scResponseAuth)
+  if (_internal_has_scresponseauth()) {
+    clear_has_body();
+    ::Protocol::ScResponseAuth* temp = body_.scresponseauth_;
+    body_.scresponseauth_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Protocol::unsafe_arena_set_allocated_scresponseauth(::Protocol::ScResponseAuth* scresponseauth) {
+  clear_body();
+  if (scresponseauth) {
+    set_has_scresponseauth();
+    body_.scresponseauth_ = scresponseauth;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Protocol.Protocol.scResponseAuth)
+}
+inline ::Protocol::ScResponseAuth* Protocol::_internal_mutable_scresponseauth() {
+  if (!_internal_has_scresponseauth()) {
+    clear_body();
+    set_has_scresponseauth();
+    body_.scresponseauth_ = CreateMaybeMessage< ::Protocol::ScResponseAuth >(GetArenaForAllocation());
+  }
+  return body_.scresponseauth_;
+}
+inline ::Protocol::ScResponseAuth* Protocol::mutable_scresponseauth() {
+  ::Protocol::ScResponseAuth* _msg = _internal_mutable_scresponseauth();
+  // @@protoc_insertion_point(field_mutable:Protocol.Protocol.scResponseAuth)
   return _msg;
 }
 
@@ -1077,9 +1654,347 @@ inline void ScReplyInfo::set_allocated_registerid(std::string* registerid) {
   // @@protoc_insertion_point(field_set_allocated:Protocol.ScReplyInfo.registerId)
 }
 
+// -------------------------------------------------------------------
+
+// CsRequestAuth
+
+// string sourceId = 1;
+inline void CsRequestAuth::clear_sourceid() {
+  sourceid_.ClearToEmpty();
+}
+inline const std::string& CsRequestAuth::sourceid() const {
+  // @@protoc_insertion_point(field_get:Protocol.CsRequestAuth.sourceId)
+  return _internal_sourceid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CsRequestAuth::set_sourceid(ArgT0&& arg0, ArgT... args) {
+ 
+ sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.CsRequestAuth.sourceId)
+}
+inline std::string* CsRequestAuth::mutable_sourceid() {
+  std::string* _s = _internal_mutable_sourceid();
+  // @@protoc_insertion_point(field_mutable:Protocol.CsRequestAuth.sourceId)
+  return _s;
+}
+inline const std::string& CsRequestAuth::_internal_sourceid() const {
+  return sourceid_.Get();
+}
+inline void CsRequestAuth::_internal_set_sourceid(const std::string& value) {
+  
+  sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::_internal_mutable_sourceid() {
+  
+  return sourceid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::release_sourceid() {
+  // @@protoc_insertion_point(field_release:Protocol.CsRequestAuth.sourceId)
+  return sourceid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CsRequestAuth::set_allocated_sourceid(std::string* sourceid) {
+  if (sourceid != nullptr) {
+    
+  } else {
+    
+  }
+  sourceid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sourceid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (sourceid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.CsRequestAuth.sourceId)
+}
+
+// string targetId = 2;
+inline void CsRequestAuth::clear_targetid() {
+  targetid_.ClearToEmpty();
+}
+inline const std::string& CsRequestAuth::targetid() const {
+  // @@protoc_insertion_point(field_get:Protocol.CsRequestAuth.targetId)
+  return _internal_targetid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CsRequestAuth::set_targetid(ArgT0&& arg0, ArgT... args) {
+ 
+ targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.CsRequestAuth.targetId)
+}
+inline std::string* CsRequestAuth::mutable_targetid() {
+  std::string* _s = _internal_mutable_targetid();
+  // @@protoc_insertion_point(field_mutable:Protocol.CsRequestAuth.targetId)
+  return _s;
+}
+inline const std::string& CsRequestAuth::_internal_targetid() const {
+  return targetid_.Get();
+}
+inline void CsRequestAuth::_internal_set_targetid(const std::string& value) {
+  
+  targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::_internal_mutable_targetid() {
+  
+  return targetid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::release_targetid() {
+  // @@protoc_insertion_point(field_release:Protocol.CsRequestAuth.targetId)
+  return targetid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CsRequestAuth::set_allocated_targetid(std::string* targetid) {
+  if (targetid != nullptr) {
+    
+  } else {
+    
+  }
+  targetid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), targetid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (targetid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.CsRequestAuth.targetId)
+}
+
+// string password = 3;
+inline void CsRequestAuth::clear_password() {
+  password_.ClearToEmpty();
+}
+inline const std::string& CsRequestAuth::password() const {
+  // @@protoc_insertion_point(field_get:Protocol.CsRequestAuth.password)
+  return _internal_password();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CsRequestAuth::set_password(ArgT0&& arg0, ArgT... args) {
+ 
+ password_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.CsRequestAuth.password)
+}
+inline std::string* CsRequestAuth::mutable_password() {
+  std::string* _s = _internal_mutable_password();
+  // @@protoc_insertion_point(field_mutable:Protocol.CsRequestAuth.password)
+  return _s;
+}
+inline const std::string& CsRequestAuth::_internal_password() const {
+  return password_.Get();
+}
+inline void CsRequestAuth::_internal_set_password(const std::string& value) {
+  
+  password_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::_internal_mutable_password() {
+  
+  return password_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CsRequestAuth::release_password() {
+  // @@protoc_insertion_point(field_release:Protocol.CsRequestAuth.password)
+  return password_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CsRequestAuth::set_allocated_password(std::string* password) {
+  if (password != nullptr) {
+    
+  } else {
+    
+  }
+  password_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), password,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (password_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    password_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.CsRequestAuth.password)
+}
+
+// -------------------------------------------------------------------
+
+// ScResponseAuth
+
+// string sourceId = 1;
+inline void ScResponseAuth::clear_sourceid() {
+  sourceid_.ClearToEmpty();
+}
+inline const std::string& ScResponseAuth::sourceid() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScResponseAuth.sourceId)
+  return _internal_sourceid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScResponseAuth::set_sourceid(ArgT0&& arg0, ArgT... args) {
+ 
+ sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.ScResponseAuth.sourceId)
+}
+inline std::string* ScResponseAuth::mutable_sourceid() {
+  std::string* _s = _internal_mutable_sourceid();
+  // @@protoc_insertion_point(field_mutable:Protocol.ScResponseAuth.sourceId)
+  return _s;
+}
+inline const std::string& ScResponseAuth::_internal_sourceid() const {
+  return sourceid_.Get();
+}
+inline void ScResponseAuth::_internal_set_sourceid(const std::string& value) {
+  
+  sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::_internal_mutable_sourceid() {
+  
+  return sourceid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::release_sourceid() {
+  // @@protoc_insertion_point(field_release:Protocol.ScResponseAuth.sourceId)
+  return sourceid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScResponseAuth::set_allocated_sourceid(std::string* sourceid) {
+  if (sourceid != nullptr) {
+    
+  } else {
+    
+  }
+  sourceid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sourceid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (sourceid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.ScResponseAuth.sourceId)
+}
+
+// string targetId = 2;
+inline void ScResponseAuth::clear_targetid() {
+  targetid_.ClearToEmpty();
+}
+inline const std::string& ScResponseAuth::targetid() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScResponseAuth.targetId)
+  return _internal_targetid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScResponseAuth::set_targetid(ArgT0&& arg0, ArgT... args) {
+ 
+ targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.ScResponseAuth.targetId)
+}
+inline std::string* ScResponseAuth::mutable_targetid() {
+  std::string* _s = _internal_mutable_targetid();
+  // @@protoc_insertion_point(field_mutable:Protocol.ScResponseAuth.targetId)
+  return _s;
+}
+inline const std::string& ScResponseAuth::_internal_targetid() const {
+  return targetid_.Get();
+}
+inline void ScResponseAuth::_internal_set_targetid(const std::string& value) {
+  
+  targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::_internal_mutable_targetid() {
+  
+  return targetid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::release_targetid() {
+  // @@protoc_insertion_point(field_release:Protocol.ScResponseAuth.targetId)
+  return targetid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScResponseAuth::set_allocated_targetid(std::string* targetid) {
+  if (targetid != nullptr) {
+    
+  } else {
+    
+  }
+  targetid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), targetid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (targetid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.ScResponseAuth.targetId)
+}
+
+// bool success = 3;
+inline void ScResponseAuth::clear_success() {
+  success_ = false;
+}
+inline bool ScResponseAuth::_internal_success() const {
+  return success_;
+}
+inline bool ScResponseAuth::success() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScResponseAuth.success)
+  return _internal_success();
+}
+inline void ScResponseAuth::_internal_set_success(bool value) {
+  
+  success_ = value;
+}
+inline void ScResponseAuth::set_success(bool value) {
+  _internal_set_success(value);
+  // @@protoc_insertion_point(field_set:Protocol.ScResponseAuth.success)
+}
+
+// string msg = 4;
+inline void ScResponseAuth::clear_msg() {
+  msg_.ClearToEmpty();
+}
+inline const std::string& ScResponseAuth::msg() const {
+  // @@protoc_insertion_point(field_get:Protocol.ScResponseAuth.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScResponseAuth::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Protocol.ScResponseAuth.msg)
+}
+inline std::string* ScResponseAuth::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:Protocol.ScResponseAuth.msg)
+  return _s;
+}
+inline const std::string& ScResponseAuth::_internal_msg() const {
+  return msg_.Get();
+}
+inline void ScResponseAuth::_internal_set_msg(const std::string& value) {
+  
+  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::_internal_mutable_msg() {
+  
+  return msg_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScResponseAuth::release_msg() {
+  // @@protoc_insertion_point(field_release:Protocol.ScResponseAuth.msg)
+  return msg_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScResponseAuth::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  msg_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), msg,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (msg_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Protocol.ScResponseAuth.msg)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -60,6 +60,36 @@ public final class ProtocolOuter {
      */
     com.qanydesk.protocol.ProtocolOuter.ScReplyInfoOrBuilder getScReplyInfoOrBuilder();
 
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     * @return Whether the csRequestAuth field is set.
+     */
+    boolean hasCsRequestAuth();
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     * @return The csRequestAuth.
+     */
+    com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getCsRequestAuth();
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     */
+    com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder getCsRequestAuthOrBuilder();
+
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     * @return Whether the scResponseAuth field is set.
+     */
+    boolean hasScResponseAuth();
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     * @return The scResponseAuth.
+     */
+    com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getScResponseAuth();
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     */
+    com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder getScResponseAuthOrBuilder();
+
     public com.qanydesk.protocol.ProtocolOuter.Protocol.BodyCase getBodyCase();
   }
   /**
@@ -146,6 +176,34 @@ public final class ProtocolOuter {
               bodyCase_ = 3;
               break;
             }
+            case 34: {
+              com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder subBuilder = null;
+              if (bodyCase_ == 4) {
+                subBuilder = ((com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 4;
+              break;
+            }
+            case 42: {
+              com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder subBuilder = null;
+              if (bodyCase_ == 5) {
+                subBuilder = ((com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 5;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -185,6 +243,8 @@ public final class ProtocolOuter {
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       CSHOSTINFO(2),
       SCREPLYINFO(3),
+      CSREQUESTAUTH(4),
+      SCRESPONSEAUTH(5),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -204,6 +264,8 @@ public final class ProtocolOuter {
         switch (value) {
           case 2: return CSHOSTINFO;
           case 3: return SCREPLYINFO;
+          case 4: return CSREQUESTAUTH;
+          case 5: return SCRESPONSEAUTH;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -319,6 +381,68 @@ public final class ProtocolOuter {
       return com.qanydesk.protocol.ProtocolOuter.ScReplyInfo.getDefaultInstance();
     }
 
+    public static final int CSREQUESTAUTH_FIELD_NUMBER = 4;
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     * @return Whether the csRequestAuth field is set.
+     */
+    @java.lang.Override
+    public boolean hasCsRequestAuth() {
+      return bodyCase_ == 4;
+    }
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     * @return The csRequestAuth.
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getCsRequestAuth() {
+      if (bodyCase_ == 4) {
+         return (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+    }
+    /**
+     * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder getCsRequestAuthOrBuilder() {
+      if (bodyCase_ == 4) {
+         return (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+    }
+
+    public static final int SCRESPONSEAUTH_FIELD_NUMBER = 5;
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     * @return Whether the scResponseAuth field is set.
+     */
+    @java.lang.Override
+    public boolean hasScResponseAuth() {
+      return bodyCase_ == 5;
+    }
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     * @return The scResponseAuth.
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getScResponseAuth() {
+      if (bodyCase_ == 5) {
+         return (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+    }
+    /**
+     * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+     */
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder getScResponseAuthOrBuilder() {
+      if (bodyCase_ == 5) {
+         return (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_;
+      }
+      return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -342,6 +466,12 @@ public final class ProtocolOuter {
       if (bodyCase_ == 3) {
         output.writeMessage(3, (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_);
       }
+      if (bodyCase_ == 4) {
+        output.writeMessage(4, (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_);
+      }
+      if (bodyCase_ == 5) {
+        output.writeMessage(5, (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -361,6 +491,14 @@ public final class ProtocolOuter {
       if (bodyCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.qanydesk.protocol.ProtocolOuter.ScReplyInfo) body_);
+      }
+      if (bodyCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_);
+      }
+      if (bodyCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -389,6 +527,14 @@ public final class ProtocolOuter {
           if (!getScReplyInfo()
               .equals(other.getScReplyInfo())) return false;
           break;
+        case 4:
+          if (!getCsRequestAuth()
+              .equals(other.getCsRequestAuth())) return false;
+          break;
+        case 5:
+          if (!getScResponseAuth()
+              .equals(other.getScResponseAuth())) return false;
+          break;
         case 0:
         default:
       }
@@ -413,6 +559,14 @@ public final class ProtocolOuter {
         case 3:
           hash = (37 * hash) + SCREPLYINFO_FIELD_NUMBER;
           hash = (53 * hash) + getScReplyInfo().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + CSREQUESTAUTH_FIELD_NUMBER;
+          hash = (53 * hash) + getCsRequestAuth().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + SCRESPONSEAUTH_FIELD_NUMBER;
+          hash = (53 * hash) + getScResponseAuth().hashCode();
           break;
         case 0:
         default:
@@ -599,6 +753,20 @@ public final class ProtocolOuter {
             result.body_ = scReplyInfoBuilder_.build();
           }
         }
+        if (bodyCase_ == 4) {
+          if (csRequestAuthBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = csRequestAuthBuilder_.build();
+          }
+        }
+        if (bodyCase_ == 5) {
+          if (scResponseAuthBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = scResponseAuthBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -659,6 +827,14 @@ public final class ProtocolOuter {
           }
           case SCREPLYINFO: {
             mergeScReplyInfo(other.getScReplyInfo());
+            break;
+          }
+          case CSREQUESTAUTH: {
+            mergeCsRequestAuth(other.getCsRequestAuth());
+            break;
+          }
+          case SCRESPONSEAUTH: {
+            mergeScResponseAuth(other.getScResponseAuth());
             break;
           }
           case BODY_NOT_SET: {
@@ -1066,6 +1242,288 @@ public final class ProtocolOuter {
         onChanged();;
         return scReplyInfoBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.CsRequestAuth, com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder, com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder> csRequestAuthBuilder_;
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       * @return Whether the csRequestAuth field is set.
+       */
+      @java.lang.Override
+      public boolean hasCsRequestAuth() {
+        return bodyCase_ == 4;
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       * @return The csRequestAuth.
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getCsRequestAuth() {
+        if (csRequestAuthBuilder_ == null) {
+          if (bodyCase_ == 4) {
+            return (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 4) {
+            return csRequestAuthBuilder_.getMessage();
+          }
+          return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      public Builder setCsRequestAuth(com.qanydesk.protocol.ProtocolOuter.CsRequestAuth value) {
+        if (csRequestAuthBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          csRequestAuthBuilder_.setMessage(value);
+        }
+        bodyCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      public Builder setCsRequestAuth(
+          com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder builderForValue) {
+        if (csRequestAuthBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          csRequestAuthBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      public Builder mergeCsRequestAuth(com.qanydesk.protocol.ProtocolOuter.CsRequestAuth value) {
+        if (csRequestAuthBuilder_ == null) {
+          if (bodyCase_ == 4 &&
+              body_ != com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance()) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.newBuilder((com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 4) {
+            csRequestAuthBuilder_.mergeFrom(value);
+          }
+          csRequestAuthBuilder_.setMessage(value);
+        }
+        bodyCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      public Builder clearCsRequestAuth() {
+        if (csRequestAuthBuilder_ == null) {
+          if (bodyCase_ == 4) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 4) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          csRequestAuthBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder getCsRequestAuthBuilder() {
+        return getCsRequestAuthFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder getCsRequestAuthOrBuilder() {
+        if ((bodyCase_ == 4) && (csRequestAuthBuilder_ != null)) {
+          return csRequestAuthBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 4) {
+            return (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.CsRequestAuth csRequestAuth = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.CsRequestAuth, com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder, com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder> 
+          getCsRequestAuthFieldBuilder() {
+        if (csRequestAuthBuilder_ == null) {
+          if (!(bodyCase_ == 4)) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+          }
+          csRequestAuthBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.qanydesk.protocol.ProtocolOuter.CsRequestAuth, com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder, com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder>(
+                  (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 4;
+        onChanged();;
+        return csRequestAuthBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.ScResponseAuth, com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder, com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder> scResponseAuthBuilder_;
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       * @return Whether the scResponseAuth field is set.
+       */
+      @java.lang.Override
+      public boolean hasScResponseAuth() {
+        return bodyCase_ == 5;
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       * @return The scResponseAuth.
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getScResponseAuth() {
+        if (scResponseAuthBuilder_ == null) {
+          if (bodyCase_ == 5) {
+            return (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 5) {
+            return scResponseAuthBuilder_.getMessage();
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      public Builder setScResponseAuth(com.qanydesk.protocol.ProtocolOuter.ScResponseAuth value) {
+        if (scResponseAuthBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          scResponseAuthBuilder_.setMessage(value);
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      public Builder setScResponseAuth(
+          com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder builderForValue) {
+        if (scResponseAuthBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          scResponseAuthBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      public Builder mergeScResponseAuth(com.qanydesk.protocol.ProtocolOuter.ScResponseAuth value) {
+        if (scResponseAuthBuilder_ == null) {
+          if (bodyCase_ == 5 &&
+              body_ != com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance()) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.newBuilder((com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 5) {
+            scResponseAuthBuilder_.mergeFrom(value);
+          }
+          scResponseAuthBuilder_.setMessage(value);
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      public Builder clearScResponseAuth() {
+        if (scResponseAuthBuilder_ == null) {
+          if (bodyCase_ == 5) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 5) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          scResponseAuthBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder getScResponseAuthBuilder() {
+        return getScResponseAuthFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder getScResponseAuthOrBuilder() {
+        if ((bodyCase_ == 5) && (scResponseAuthBuilder_ != null)) {
+          return scResponseAuthBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 5) {
+            return (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_;
+          }
+          return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Protocol.ScResponseAuth scResponseAuth = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.qanydesk.protocol.ProtocolOuter.ScResponseAuth, com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder, com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder> 
+          getScResponseAuthFieldBuilder() {
+        if (scResponseAuthBuilder_ == null) {
+          if (!(bodyCase_ == 5)) {
+            body_ = com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+          }
+          scResponseAuthBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.qanydesk.protocol.ProtocolOuter.ScResponseAuth, com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder, com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder>(
+                  (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 5;
+        onChanged();;
+        return scResponseAuthBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1168,6 +1626,10 @@ public final class ProtocolOuter {
         getMacAddressBytes();
   }
   /**
+   * <pre>
+   * 注册请求
+   * </pre>
+   *
    * Protobuf type {@code Protocol.CsHostInfo}
    */
   public static final class CsHostInfo extends
@@ -1562,6 +2024,10 @@ public final class ProtocolOuter {
       return builder;
     }
     /**
+     * <pre>
+     * 注册请求
+     * </pre>
+     *
      * Protobuf type {@code Protocol.CsHostInfo}
      */
     public static final class Builder extends
@@ -2047,7 +2513,7 @@ public final class ProtocolOuter {
   }
   /**
    * <pre>
-   * 注册信息
+   * 注册结果
    * </pre>
    *
    * Protobuf type {@code Protocol.ScReplyInfo}
@@ -2355,7 +2821,7 @@ public final class ProtocolOuter {
     }
     /**
      * <pre>
-     * 注册信息
+     * 注册结果
      * </pre>
      *
      * Protobuf type {@code Protocol.ScReplyInfo}
@@ -2670,6 +3136,1829 @@ public final class ProtocolOuter {
 
   }
 
+  public interface CsRequestAuthOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Protocol.CsRequestAuth)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The sourceId.
+     */
+    java.lang.String getSourceId();
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
+        getSourceIdBytes();
+
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The targetId.
+     */
+    java.lang.String getTargetId();
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The bytes for targetId.
+     */
+    com.google.protobuf.ByteString
+        getTargetIdBytes();
+
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * <pre>
+   * 认证请求
+   * </pre>
+   *
+   * Protobuf type {@code Protocol.CsRequestAuth}
+   */
+  public static final class CsRequestAuth extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Protocol.CsRequestAuth)
+      CsRequestAuthOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CsRequestAuth.newBuilder() to construct.
+    private CsRequestAuth(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CsRequestAuth() {
+      sourceId_ = "";
+      targetId_ = "";
+      password_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CsRequestAuth();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CsRequestAuth(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourceId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              targetId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_CsRequestAuth_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_CsRequestAuth_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.class, com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder.class);
+    }
+
+    public static final int SOURCEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object sourceId_;
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The sourceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSourceId() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sourceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TARGETID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object targetId_;
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The targetId.
+     */
+    @java.lang.Override
+    public java.lang.String getTargetId() {
+      java.lang.Object ref = targetId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        targetId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The bytes for targetId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTargetIdBytes() {
+      java.lang.Object ref = targetId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        targetId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sourceId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, targetId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sourceId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, targetId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.qanydesk.protocol.ProtocolOuter.CsRequestAuth)) {
+        return super.equals(obj);
+      }
+      com.qanydesk.protocol.ProtocolOuter.CsRequestAuth other = (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) obj;
+
+      if (!getSourceId()
+          .equals(other.getSourceId())) return false;
+      if (!getTargetId()
+          .equals(other.getTargetId())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SOURCEID_FIELD_NUMBER;
+      hash = (53 * hash) + getSourceId().hashCode();
+      hash = (37 * hash) + TARGETID_FIELD_NUMBER;
+      hash = (53 * hash) + getTargetId().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.qanydesk.protocol.ProtocolOuter.CsRequestAuth prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 认证请求
+     * </pre>
+     *
+     * Protobuf type {@code Protocol.CsRequestAuth}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Protocol.CsRequestAuth)
+        com.qanydesk.protocol.ProtocolOuter.CsRequestAuthOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_CsRequestAuth_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_CsRequestAuth_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.class, com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.Builder.class);
+      }
+
+      // Construct using com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sourceId_ = "";
+
+        targetId_ = "";
+
+        password_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_CsRequestAuth_descriptor;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getDefaultInstanceForType() {
+        return com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth build() {
+        com.qanydesk.protocol.ProtocolOuter.CsRequestAuth result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth buildPartial() {
+        com.qanydesk.protocol.ProtocolOuter.CsRequestAuth result = new com.qanydesk.protocol.ProtocolOuter.CsRequestAuth(this);
+        result.sourceId_ = sourceId_;
+        result.targetId_ = targetId_;
+        result.password_ = password_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) {
+          return mergeFrom((com.qanydesk.protocol.ProtocolOuter.CsRequestAuth)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.qanydesk.protocol.ProtocolOuter.CsRequestAuth other) {
+        if (other == com.qanydesk.protocol.ProtocolOuter.CsRequestAuth.getDefaultInstance()) return this;
+        if (!other.getSourceId().isEmpty()) {
+          sourceId_ = other.sourceId_;
+          onChanged();
+        }
+        if (!other.getTargetId().isEmpty()) {
+          targetId_ = other.targetId_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.qanydesk.protocol.ProtocolOuter.CsRequestAuth parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.qanydesk.protocol.ProtocolOuter.CsRequestAuth) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object sourceId_ = "";
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return The sourceId.
+       */
+      public java.lang.String getSourceId() {
+        java.lang.Object ref = sourceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sourceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return The bytes for sourceId.
+       */
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        java.lang.Object ref = sourceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sourceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @param value The sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sourceId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSourceId() {
+        
+        sourceId_ = getDefaultInstance().getSourceId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sourceId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object targetId_ = "";
+      /**
+       * <code>string targetId = 2;</code>
+       * @return The targetId.
+       */
+      public java.lang.String getTargetId() {
+        java.lang.Object ref = targetId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          targetId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @return The bytes for targetId.
+       */
+      public com.google.protobuf.ByteString
+          getTargetIdBytes() {
+        java.lang.Object ref = targetId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          targetId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @param value The targetId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTargetId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        targetId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTargetId() {
+        
+        targetId_ = getDefaultInstance().getTargetId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @param value The bytes for targetId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTargetIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        targetId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 3;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Protocol.CsRequestAuth)
+    }
+
+    // @@protoc_insertion_point(class_scope:Protocol.CsRequestAuth)
+    private static final com.qanydesk.protocol.ProtocolOuter.CsRequestAuth DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.qanydesk.protocol.ProtocolOuter.CsRequestAuth();
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CsRequestAuth>
+        PARSER = new com.google.protobuf.AbstractParser<CsRequestAuth>() {
+      @java.lang.Override
+      public CsRequestAuth parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CsRequestAuth(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CsRequestAuth> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CsRequestAuth> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.CsRequestAuth getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ScResponseAuthOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Protocol.ScResponseAuth)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The sourceId.
+     */
+    java.lang.String getSourceId();
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
+        getSourceIdBytes();
+
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The targetId.
+     */
+    java.lang.String getTargetId();
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The bytes for targetId.
+     */
+    com.google.protobuf.ByteString
+        getTargetIdBytes();
+
+    /**
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
+
+    /**
+     * <code>string msg = 4;</code>
+     * @return The msg.
+     */
+    java.lang.String getMsg();
+    /**
+     * <code>string msg = 4;</code>
+     * @return The bytes for msg.
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
+  }
+  /**
+   * <pre>
+   * 认证响应
+   * </pre>
+   *
+   * Protobuf type {@code Protocol.ScResponseAuth}
+   */
+  public static final class ScResponseAuth extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Protocol.ScResponseAuth)
+      ScResponseAuthOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ScResponseAuth.newBuilder() to construct.
+    private ScResponseAuth(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ScResponseAuth() {
+      sourceId_ = "";
+      targetId_ = "";
+      msg_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ScResponseAuth();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScResponseAuth(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourceId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              targetId_ = s;
+              break;
+            }
+            case 24: {
+
+              success_ = input.readBool();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              msg_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScResponseAuth_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScResponseAuth_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.class, com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder.class);
+    }
+
+    public static final int SOURCEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object sourceId_;
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The sourceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSourceId() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sourceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sourceId = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TARGETID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object targetId_;
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The targetId.
+     */
+    @java.lang.Override
+    public java.lang.String getTargetId() {
+      java.lang.Object ref = targetId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        targetId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string targetId = 2;</code>
+     * @return The bytes for targetId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTargetIdBytes() {
+      java.lang.Object ref = targetId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        targetId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 3;
+    private boolean success_;
+    /**
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 4;
+    private volatile java.lang.Object msg_;
+    /**
+     * <code>string msg = 4;</code>
+     * @return The msg.
+     */
+    @java.lang.Override
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        msg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string msg = 4;</code>
+     * @return The bytes for msg.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sourceId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, targetId_);
+      }
+      if (success_ != false) {
+        output.writeBool(3, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, msg_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sourceId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, targetId_);
+      }
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msg_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.qanydesk.protocol.ProtocolOuter.ScResponseAuth)) {
+        return super.equals(obj);
+      }
+      com.qanydesk.protocol.ProtocolOuter.ScResponseAuth other = (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) obj;
+
+      if (!getSourceId()
+          .equals(other.getSourceId())) return false;
+      if (!getTargetId()
+          .equals(other.getTargetId())) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
+      if (!getMsg()
+          .equals(other.getMsg())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SOURCEID_FIELD_NUMBER;
+      hash = (53 * hash) + getSourceId().hashCode();
+      hash = (37 * hash) + TARGETID_FIELD_NUMBER;
+      hash = (53 * hash) + getTargetId().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
+      hash = (37 * hash) + MSG_FIELD_NUMBER;
+      hash = (53 * hash) + getMsg().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.qanydesk.protocol.ProtocolOuter.ScResponseAuth prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 认证响应
+     * </pre>
+     *
+     * Protobuf type {@code Protocol.ScResponseAuth}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Protocol.ScResponseAuth)
+        com.qanydesk.protocol.ProtocolOuter.ScResponseAuthOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScResponseAuth_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScResponseAuth_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.class, com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.Builder.class);
+      }
+
+      // Construct using com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sourceId_ = "";
+
+        targetId_ = "";
+
+        success_ = false;
+
+        msg_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.qanydesk.protocol.ProtocolOuter.internal_static_Protocol_ScResponseAuth_descriptor;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getDefaultInstanceForType() {
+        return com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth build() {
+        com.qanydesk.protocol.ProtocolOuter.ScResponseAuth result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth buildPartial() {
+        com.qanydesk.protocol.ProtocolOuter.ScResponseAuth result = new com.qanydesk.protocol.ProtocolOuter.ScResponseAuth(this);
+        result.sourceId_ = sourceId_;
+        result.targetId_ = targetId_;
+        result.success_ = success_;
+        result.msg_ = msg_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) {
+          return mergeFrom((com.qanydesk.protocol.ProtocolOuter.ScResponseAuth)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.qanydesk.protocol.ProtocolOuter.ScResponseAuth other) {
+        if (other == com.qanydesk.protocol.ProtocolOuter.ScResponseAuth.getDefaultInstance()) return this;
+        if (!other.getSourceId().isEmpty()) {
+          sourceId_ = other.sourceId_;
+          onChanged();
+        }
+        if (!other.getTargetId().isEmpty()) {
+          targetId_ = other.targetId_;
+          onChanged();
+        }
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        if (!other.getMsg().isEmpty()) {
+          msg_ = other.msg_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.qanydesk.protocol.ProtocolOuter.ScResponseAuth parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.qanydesk.protocol.ProtocolOuter.ScResponseAuth) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object sourceId_ = "";
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return The sourceId.
+       */
+      public java.lang.String getSourceId() {
+        java.lang.Object ref = sourceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sourceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return The bytes for sourceId.
+       */
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        java.lang.Object ref = sourceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sourceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @param value The sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sourceId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSourceId() {
+        
+        sourceId_ = getDefaultInstance().getSourceId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sourceId = 1;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sourceId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object targetId_ = "";
+      /**
+       * <code>string targetId = 2;</code>
+       * @return The targetId.
+       */
+      public java.lang.String getTargetId() {
+        java.lang.Object ref = targetId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          targetId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @return The bytes for targetId.
+       */
+      public com.google.protobuf.ByteString
+          getTargetIdBytes() {
+        java.lang.Object ref = targetId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          targetId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @param value The targetId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTargetId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        targetId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTargetId() {
+        
+        targetId_ = getDefaultInstance().getTargetId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string targetId = 2;</code>
+       * @param value The bytes for targetId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTargetIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        targetId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean success_ ;
+      /**
+       * <code>bool success = 3;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>bool success = 3;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool success = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object msg_ = "";
+      /**
+       * <code>string msg = 4;</code>
+       * @return The msg.
+       */
+      public java.lang.String getMsg() {
+        java.lang.Object ref = msg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          msg_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string msg = 4;</code>
+       * @return The bytes for msg.
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        java.lang.Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string msg = 4;</code>
+       * @param value The msg to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string msg = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMsg() {
+        
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string msg = 4;</code>
+       * @param value The bytes for msg to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Protocol.ScResponseAuth)
+    }
+
+    // @@protoc_insertion_point(class_scope:Protocol.ScResponseAuth)
+    private static final com.qanydesk.protocol.ProtocolOuter.ScResponseAuth DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.qanydesk.protocol.ProtocolOuter.ScResponseAuth();
+    }
+
+    public static com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ScResponseAuth>
+        PARSER = new com.google.protobuf.AbstractParser<ScResponseAuth>() {
+      @java.lang.Override
+      public ScResponseAuth parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScResponseAuth(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScResponseAuth> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ScResponseAuth> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.qanydesk.protocol.ProtocolOuter.ScResponseAuth getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Protocol_Protocol_descriptor;
   private static final 
@@ -2685,6 +4974,16 @@ public final class ProtocolOuter {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Protocol_ScReplyInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Protocol_CsRequestAuth_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Protocol_CsRequestAuth_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Protocol_ScResponseAuth_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Protocol_ScResponseAuth_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2694,15 +4993,21 @@ public final class ProtocolOuter {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Protocol.proto\022\010Protocol\"z\n\010Protocol\022\014" +
-      "\n\004type\030\001 \001(\t\022*\n\ncsHostInfo\030\002 \001(\0132\024.Proto" +
-      "col.CsHostInfoH\000\022,\n\013scReplyInfo\030\003 \001(\0132\025." +
-      "Protocol.ScReplyInfoH\000B\006\n\004body\"E\n\nCsHost" +
-      "Info\022\r\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001(" +
-      "\t\022\022\n\nmacAddress\030\003 \001(\t\"2\n\013ScReplyInfo\022\017\n\007" +
-      "success\030\001 \001(\010\022\022\n\nregisterId\030\002 \001(\tB(\n\025com" +
-      ".qanydesk.protocolB\rProtocolOuterH\001b\006pro" +
-      "to3"
+      "\n\016Protocol.proto\022\010Protocol\"\340\001\n\010Protocol\022" +
+      "\014\n\004type\030\001 \001(\t\022*\n\ncsHostInfo\030\002 \001(\0132\024.Prot" +
+      "ocol.CsHostInfoH\000\022,\n\013scReplyInfo\030\003 \001(\0132\025" +
+      ".Protocol.ScReplyInfoH\000\0220\n\rcsRequestAuth" +
+      "\030\004 \001(\0132\027.Protocol.CsRequestAuthH\000\0222\n\016scR" +
+      "esponseAuth\030\005 \001(\0132\030.Protocol.ScResponseA" +
+      "uthH\000B\006\n\004body\"E\n\nCsHostInfo\022\r\n\005cpuId\030\001 \001" +
+      "(\t\022\024\n\014diskDeviceId\030\002 \001(\t\022\022\n\nmacAddress\030\003" +
+      " \001(\t\"2\n\013ScReplyInfo\022\017\n\007success\030\001 \001(\010\022\022\n\n" +
+      "registerId\030\002 \001(\t\"E\n\rCsRequestAuth\022\020\n\010sou" +
+      "rceId\030\001 \001(\t\022\020\n\010targetId\030\002 \001(\t\022\020\n\010passwor" +
+      "d\030\003 \001(\t\"R\n\016ScResponseAuth\022\020\n\010sourceId\030\001 " +
+      "\001(\t\022\020\n\010targetId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\022\013" +
+      "\n\003msg\030\004 \001(\tB(\n\025com.qanydesk.protocolB\rPr" +
+      "otocolOuterH\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2713,7 +5018,7 @@ public final class ProtocolOuter {
     internal_static_Protocol_Protocol_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Protocol_Protocol_descriptor,
-        new java.lang.String[] { "Type", "CsHostInfo", "ScReplyInfo", "Body", });
+        new java.lang.String[] { "Type", "CsHostInfo", "ScReplyInfo", "CsRequestAuth", "ScResponseAuth", "Body", });
     internal_static_Protocol_CsHostInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Protocol_CsHostInfo_fieldAccessorTable = new
@@ -2726,6 +5031,18 @@ public final class ProtocolOuter {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Protocol_ScReplyInfo_descriptor,
         new java.lang.String[] { "Success", "RegisterId", });
+    internal_static_Protocol_CsRequestAuth_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Protocol_CsRequestAuth_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Protocol_CsRequestAuth_descriptor,
+        new java.lang.String[] { "SourceId", "TargetId", "Password", });
+    internal_static_Protocol_ScResponseAuth_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Protocol_ScResponseAuth_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Protocol_ScResponseAuth_descriptor,
+        new java.lang.String[] { "SourceId", "TargetId", "Success", "Msg", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

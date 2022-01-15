@@ -11,12 +11,8 @@ class DeviceInfo : public QObject
 public:
 	explicit DeviceInfo(QObject * parent = nullptr) : QObject(parent) {}
 	~DeviceInfo();
-	void setHost(QString host);
-	void setPort(quint16 port);
-	void setId(QString id);
-	QString getHost();
-	quint16 getPort();
-	QString getId();
+	QString getRegisterId();
+	void setRegisterId(const QString & registerId);
 	// 获取本机网络IP
 	QString netWorkIp();
 	// 获取本机MAC地址
@@ -39,12 +35,10 @@ protected:
 	void getcpuid(unsigned int CPUInfo[4], unsigned int InfoType);
 	void getcpuidex(unsigned int CPUInfo[4], unsigned int InfoType, unsigned int ECXValue);
 private:
-	QString host;			
-	quint16 port;
-	QString password;
-	QString id;
+	QString remoteHost;		// 服务器host
+	qint16 remotePort;		// 服务器port
 
-	QString remoteHost;
-	qint16 remotePort;
+	QString registerId;
+	QString password;
 
 };

@@ -20,34 +20,6 @@ DeviceInfo::~DeviceInfo()
 	qDebug() << QSTRING("DeviceInfo被释放！");
 }
 
-void DeviceInfo::setHost(QString host)
-{
-	this->host = host;
-}
-
-void DeviceInfo::setPort(quint16 port)
-{
-	this->port = port;
-}
-
-void DeviceInfo::setId(QString id)
-{
-	this->id = id;
-}
-
-QString  DeviceInfo::getHost() {
-	return this->host;
-}
-
-quint16 DeviceInfo::getPort() {
-	return this->port;
-}
-
-QString DeviceInfo::getId()
-{
-	return this->id;
-}
-
 QString DeviceInfo::netWorkIp()
 {
 	QList<QHostAddress> list = QNetworkInterface::allAddresses();
@@ -58,6 +30,16 @@ QString DeviceInfo::netWorkIp()
 			return address.toString();
 	}
 	return 0;
+}
+
+QString DeviceInfo::getRegisterId()
+{
+	return this->registerId;
+}
+
+void DeviceInfo::setRegisterId(const QString & registerId)
+{
+	this->registerId = registerId;
 }
 
 //得到MAC地址

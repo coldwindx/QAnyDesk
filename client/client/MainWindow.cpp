@@ -7,9 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-	device = DeviceInfo::init("config.ini");	// 加载配置信息
-	setTrayMenu();								// 系统托盘显示
-	connectToServer();
+	device = DeviceInfo::init("config.ini");			// 加载配置信息
+	setTrayMenu();										// 系统托盘显示
+	connectToServer();									// 连接远程服务器
+	ui->passwordLabel->setText(device->getPassword());
+	connect(ui->connectBtn, &QPushButton::clicked, this, &MainWindow::onRequestAuth);
 }
 
 MainWindow::~MainWindow()
@@ -55,7 +57,7 @@ void MainWindow::connectToServer()
 	// 发送数据
 	connect(this, &MainWindow::send, network, &NetworkHandler::send);
 	// 收到数据
-	connect(network, &NetworkHandler::received, this, &MainWindow::onRegistered);
+	connect(network, &NetworkHandler::received, this, &MainWindow::onRecieved);
 	network->moveToThread(thread);
 	thread->start();
 }
@@ -75,12 +77,8 @@ void MainWindow::onConnected()
 	Protocol::Protocol protocol;
 	protocol.set_type("CsHostInfo");
 	protocol.set_allocated_cshostinfo(info);
-		// <2> 序列化
-	int size = protocol.ByteSize();
-	char * buf = new char[size];
-	protocol.SerializeToArray(buf, size);
 		// <3> 发送
-	emit send(buf, size);
+	emit send(protocol);
 }
 
 void MainWindow::onDisconnected()
@@ -89,19 +87,53 @@ void MainWindow::onDisconnected()
 	ui->stateLabel->setText(QSTRING("连接失败，启动重启。。。"));
 }
 
-void MainWindow::onRegistered(Protocol::Protocol protocol)
+void MainWindow::onRecieved(Protocol::Protocol protocol)
 {
-	if ("ScReplyInfo" != protocol.type())
+	// 注册服务器信息
+	if ("ScReplyInfo" == protocol.type())
 	{
-		qDebug() << "错误消息！"; return;
-	}
-	Protocol::ScReplyInfo replyInfo = protocol.screplyinfo();
-	if (replyInfo.success())
-	{
-		ui->idLabel->setText(QString::fromStdString(replyInfo.registerid()));
+		Protocol::ScReplyInfo replyInfo = protocol.screplyinfo();
+		if (replyInfo.success())
+		{
+			device->setRegisterId(QString::fromStdString(replyInfo.registerid()));
+			ui->idLabel->setText(device->getRegisterId());
+			ui->connectBtn->setEnabled(true);
+			return;
+		}
+		ui->idLabel->setText("--- --- ---");
 		return;
 	}
-	ui->idLabel->setText("--- --- ---");
+	// 认证请求信息
+	if ("CsRequestAuth" == protocol.type())
+	{
+		Protocol::CsRequestAuth requestAuth = protocol.csrequestauth();
+		bool ok = device->getPassword().toStdString() == requestAuth.password();
+
+		Protocol::ScResponseAuth * responseAuth = new Protocol::ScResponseAuth();
+		responseAuth->set_sourceid(requestAuth.targetid());
+		responseAuth->set_targetid(requestAuth.sourceid());
+		responseAuth->set_success(ok);
+		if (!ok) responseAuth->set_msg("主机或密码错误！");
+
+		Protocol::Protocol response;
+		response.set_type("ScResponseAuth");
+		response.set_allocated_scresponseauth(responseAuth);
+		send(response);
+		return;
+	}
+	// 认证响应信息
+	if ("ScResponseAuth" == protocol.type())
+	{
+		Protocol::ScResponseAuth responseAuth = protocol.scresponseauth();
+		if (responseAuth.success())
+		{
+			// 开启投屏
+			return;
+		}
+		QString msg = QString::fromStdString(responseAuth.msg());
+		qDebug() << msg;
+		return;
+	}
 }
 
 void MainWindow::quit()
@@ -112,6 +144,36 @@ void MainWindow::quit()
 	thread->wait();
 	thread->deleteLater();
 	QApplication::quit();
+}
+
+void MainWindow::onRequestAuth()
+{
+	qDebug() << QSTRING("发起认证请求！");
+	QString remoteId = ui->remoteIdEdit->text().remove(QRegExp("\\s"));
+	//// 无法连接自己
+	//if (remoteId == ui->idLabel->text().remove(QRegExp("\\s")))
+	//{
+	//	QMessageBox::critical(this, "错误", "无法连接自己");
+	//	return;
+	//}
+	// 未连接到服务器
+	if (!network->isLinked())
+	{
+		QMessageBox::critical(this, "错误", "无法连接到服务器");
+		return;
+	}
+	// 发送认证请求
+	QString password = device->getPassword();
+	Protocol::CsRequestAuth * requestAuth = new Protocol::CsRequestAuth();
+	requestAuth->set_sourceid(device->getRegisterId().toStdString());
+	requestAuth->set_targetid(remoteId.toStdString());
+	requestAuth->set_password(password.toStdString());
+
+	Protocol::Protocol protocol;
+	protocol.set_type("CsRequestAuth");
+	protocol.set_allocated_csrequestauth(requestAuth);
+	// 发送
+	emit send(protocol);
 }
 
 

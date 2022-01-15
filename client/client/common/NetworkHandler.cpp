@@ -12,6 +12,11 @@ NetworkHandler::~NetworkHandler()
 	qDebug() << QSTRING("NetworkHandler被释放");
 }
 
+bool NetworkHandler::isLinked() const
+{
+	return this->linked;
+}
+
 void NetworkHandler::link()
 {
 	this->socket = new QTcpSocket(this);
@@ -36,18 +41,24 @@ void NetworkHandler::clear()
 	if (!socket)
 	{
 		if (QAbstractSocket::UnconnectedState != socket->state())
+		{
+			socket->disconnectFromHost();
+			socket->waitForDisconnected();
 			socket->close();
-		socket->disconnectFromHost();
+		}
 		socket->deleteLater();
 	}
 	emit closed();
 }
 
-void NetworkHandler::send(const char * data, int len)
+void NetworkHandler::send(Protocol::Protocol protocol)
 {
-	qDebug() << QSTRING("发送数据：") << QString::fromStdString(data);
-	socket->write(intToBytes(len), sizeof(quint32));
-	int ok = socket->write(data, len);
+	int size = protocol.ByteSize();
+	char * buf = new char[size];
+	protocol.SerializeToArray(buf, size);
+	qDebug() << QSTRING("发送数据：") << QString::fromStdString(buf);
+	socket->write(intToBytes(size), sizeof(quint32));
+	int ok = socket->write(buf, size);
 	socket->flush();
 	if (-1 == ok)
 		qDebug() << "Fail to send data to server!";
@@ -84,7 +95,7 @@ void NetworkHandler::recv()
 void NetworkHandler::connectEvent()
 {
 	qDebug() << QSTRING("连接到远程服务器！");
-	this->isLinked = true;	
+	this->linked = true;	
 	if (timer->isActive()) timer->stop();
 	emit connected();
 }
@@ -92,14 +103,14 @@ void NetworkHandler::connectEvent()
 void NetworkHandler::disconnectEvent()
 {
 	qDebug() << QSTRING("连接已断开！");
-	this->isLinked = false;
+	this->linked = false;
 	if(!timer->isActive()) timer->start(5000);
 	emit disconnected();
 }
 
 void NetworkHandler::timeoutEvent()
 {
-	if (isLinked) return;
+	if (linked) return;
 	qDebug() << QSTRING("尝试连接远程服务器！");
 	socket->abort();
 	socket->connectToHost(host, port);

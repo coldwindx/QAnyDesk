@@ -57,8 +57,37 @@ struct ScReplyInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ScReplyInfoDefaultTypeInternal _ScReplyInfo_default_instance_;
+constexpr CsRequestAuth::CsRequestAuth(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : sourceid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , targetid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , password_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CsRequestAuthDefaultTypeInternal {
+  constexpr CsRequestAuthDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CsRequestAuthDefaultTypeInternal() {}
+  union {
+    CsRequestAuth _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CsRequestAuthDefaultTypeInternal _CsRequestAuth_default_instance_;
+constexpr ScResponseAuth::ScResponseAuth(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : sourceid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , targetid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , msg_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , success_(false){}
+struct ScResponseAuthDefaultTypeInternal {
+  constexpr ScResponseAuthDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~ScResponseAuthDefaultTypeInternal() {}
+  union {
+    ScResponseAuth _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ScResponseAuthDefaultTypeInternal _ScResponseAuth_default_instance_;
 }  // namespace Protocol
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Protocol_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Protocol_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_Protocol_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_Protocol_2eproto = nullptr;
 
@@ -70,6 +99,8 @@ const uint32_t TableStruct_Protocol_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::Protocol::Protocol, type_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Protocol::Protocol, body_),
@@ -90,34 +121,63 @@ const uint32_t TableStruct_Protocol_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::Protocol::ScReplyInfo, success_),
   PROTOBUF_FIELD_OFFSET(::Protocol::ScReplyInfo, registerid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Protocol::CsRequestAuth, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::Protocol::CsRequestAuth, sourceid_),
+  PROTOBUF_FIELD_OFFSET(::Protocol::CsRequestAuth, targetid_),
+  PROTOBUF_FIELD_OFFSET(::Protocol::CsRequestAuth, password_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Protocol::ScResponseAuth, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::Protocol::ScResponseAuth, sourceid_),
+  PROTOBUF_FIELD_OFFSET(::Protocol::ScResponseAuth, targetid_),
+  PROTOBUF_FIELD_OFFSET(::Protocol::ScResponseAuth, success_),
+  PROTOBUF_FIELD_OFFSET(::Protocol::ScResponseAuth, msg_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::Protocol::Protocol)},
-  { 10, -1, -1, sizeof(::Protocol::CsHostInfo)},
-  { 19, -1, -1, sizeof(::Protocol::ScReplyInfo)},
+  { 12, -1, -1, sizeof(::Protocol::CsHostInfo)},
+  { 21, -1, -1, sizeof(::Protocol::ScReplyInfo)},
+  { 29, -1, -1, sizeof(::Protocol::CsRequestAuth)},
+  { 38, -1, -1, sizeof(::Protocol::ScResponseAuth)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Protocol::_Protocol_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Protocol::_CsHostInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Protocol::_ScReplyInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Protocol::_CsRequestAuth_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Protocol::_ScResponseAuth_default_instance_),
 };
 
 const char descriptor_table_protodef_Protocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016Protocol.proto\022\010Protocol\"z\n\010Protocol\022\014"
-  "\n\004type\030\001 \001(\t\022*\n\ncsHostInfo\030\002 \001(\0132\024.Proto"
-  "col.CsHostInfoH\000\022,\n\013scReplyInfo\030\003 \001(\0132\025."
-  "Protocol.ScReplyInfoH\000B\006\n\004body\"E\n\nCsHost"
-  "Info\022\r\n\005cpuId\030\001 \001(\t\022\024\n\014diskDeviceId\030\002 \001("
-  "\t\022\022\n\nmacAddress\030\003 \001(\t\"2\n\013ScReplyInfo\022\017\n\007"
-  "success\030\001 \001(\010\022\022\n\nregisterId\030\002 \001(\tB(\n\025com"
-  ".qanydesk.protocolB\rProtocolOuterH\001b\006pro"
-  "to3"
+  "\n\016Protocol.proto\022\010Protocol\"\340\001\n\010Protocol\022"
+  "\014\n\004type\030\001 \001(\t\022*\n\ncsHostInfo\030\002 \001(\0132\024.Prot"
+  "ocol.CsHostInfoH\000\022,\n\013scReplyInfo\030\003 \001(\0132\025"
+  ".Protocol.ScReplyInfoH\000\0220\n\rcsRequestAuth"
+  "\030\004 \001(\0132\027.Protocol.CsRequestAuthH\000\0222\n\016scR"
+  "esponseAuth\030\005 \001(\0132\030.Protocol.ScResponseA"
+  "uthH\000B\006\n\004body\"E\n\nCsHostInfo\022\r\n\005cpuId\030\001 \001"
+  "(\t\022\024\n\014diskDeviceId\030\002 \001(\t\022\022\n\nmacAddress\030\003"
+  " \001(\t\"2\n\013ScReplyInfo\022\017\n\007success\030\001 \001(\010\022\022\n\n"
+  "registerId\030\002 \001(\t\"E\n\rCsRequestAuth\022\020\n\010sou"
+  "rceId\030\001 \001(\t\022\020\n\010targetId\030\002 \001(\t\022\020\n\010passwor"
+  "d\030\003 \001(\t\"R\n\016ScResponseAuth\022\020\n\010sourceId\030\001 "
+  "\001(\t\022\020\n\010targetId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\022\013"
+  "\n\003msg\030\004 \001(\tB(\n\025com.qanydesk.protocolB\rPr"
+  "otocolOuterH\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Protocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Protocol_2eproto = {
-  false, false, 323, descriptor_table_protodef_Protocol_2eproto, "Protocol.proto", 
-  &descriptor_table_Protocol_2eproto_once, nullptr, 0, 3,
+  false, false, 581, descriptor_table_protodef_Protocol_2eproto, "Protocol.proto", 
+  &descriptor_table_Protocol_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_Protocol_2eproto::offsets,
   file_level_metadata_Protocol_2eproto, file_level_enum_descriptors_Protocol_2eproto, file_level_service_descriptors_Protocol_2eproto,
 };
@@ -135,6 +195,8 @@ class Protocol::_Internal {
  public:
   static const ::Protocol::CsHostInfo& cshostinfo(const Protocol* msg);
   static const ::Protocol::ScReplyInfo& screplyinfo(const Protocol* msg);
+  static const ::Protocol::CsRequestAuth& csrequestauth(const Protocol* msg);
+  static const ::Protocol::ScResponseAuth& scresponseauth(const Protocol* msg);
 };
 
 const ::Protocol::CsHostInfo&
@@ -144,6 +206,14 @@ Protocol::_Internal::cshostinfo(const Protocol* msg) {
 const ::Protocol::ScReplyInfo&
 Protocol::_Internal::screplyinfo(const Protocol* msg) {
   return *msg->body_.screplyinfo_;
+}
+const ::Protocol::CsRequestAuth&
+Protocol::_Internal::csrequestauth(const Protocol* msg) {
+  return *msg->body_.csrequestauth_;
+}
+const ::Protocol::ScResponseAuth&
+Protocol::_Internal::scresponseauth(const Protocol* msg) {
+  return *msg->body_.scresponseauth_;
 }
 void Protocol::set_allocated_cshostinfo(::Protocol::CsHostInfo* cshostinfo) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -175,6 +245,36 @@ void Protocol::set_allocated_screplyinfo(::Protocol::ScReplyInfo* screplyinfo) {
   }
   // @@protoc_insertion_point(field_set_allocated:Protocol.Protocol.scReplyInfo)
 }
+void Protocol::set_allocated_csrequestauth(::Protocol::CsRequestAuth* csrequestauth) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (csrequestauth) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::Protocol::CsRequestAuth>::GetOwningArena(csrequestauth);
+    if (message_arena != submessage_arena) {
+      csrequestauth = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, csrequestauth, submessage_arena);
+    }
+    set_has_csrequestauth();
+    body_.csrequestauth_ = csrequestauth;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Protocol.Protocol.csRequestAuth)
+}
+void Protocol::set_allocated_scresponseauth(::Protocol::ScResponseAuth* scresponseauth) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (scresponseauth) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::Protocol::ScResponseAuth>::GetOwningArena(scresponseauth);
+    if (message_arena != submessage_arena) {
+      scresponseauth = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, scresponseauth, submessage_arena);
+    }
+    set_has_scresponseauth();
+    body_.scresponseauth_ = scresponseauth;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Protocol.Protocol.scResponseAuth)
+}
 Protocol::Protocol(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -203,6 +303,14 @@ Protocol::Protocol(const Protocol& from)
     }
     case kScReplyInfo: {
       _internal_mutable_screplyinfo()->::Protocol::ScReplyInfo::MergeFrom(from._internal_screplyinfo());
+      break;
+    }
+    case kCsRequestAuth: {
+      _internal_mutable_csrequestauth()->::Protocol::CsRequestAuth::MergeFrom(from._internal_csrequestauth());
+      break;
+    }
+    case kScResponseAuth: {
+      _internal_mutable_scresponseauth()->::Protocol::ScResponseAuth::MergeFrom(from._internal_scresponseauth());
       break;
     }
     case BODY_NOT_SET: {
@@ -260,6 +368,18 @@ void Protocol::clear_body() {
       }
       break;
     }
+    case kCsRequestAuth: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete body_.csrequestauth_;
+      }
+      break;
+    }
+    case kScResponseAuth: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete body_.scresponseauth_;
+      }
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -307,6 +427,22 @@ const char* Protocol::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_screplyinfo(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .Protocol.CsRequestAuth csRequestAuth = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_csrequestauth(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .Protocol.ScResponseAuth scResponseAuth = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_scresponseauth(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -366,6 +502,22 @@ uint8_t* Protocol::_InternalSerialize(
         3, _Internal::screplyinfo(this), target, stream);
   }
 
+  // .Protocol.CsRequestAuth csRequestAuth = 4;
+  if (_internal_has_csrequestauth()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::csrequestauth(this), target, stream);
+  }
+
+  // .Protocol.ScResponseAuth scResponseAuth = 5;
+  if (_internal_has_scresponseauth()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::scresponseauth(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -404,6 +556,20 @@ size_t Protocol::ByteSizeLong() const {
           *body_.screplyinfo_);
       break;
     }
+    // .Protocol.CsRequestAuth csRequestAuth = 4;
+    case kCsRequestAuth: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *body_.csrequestauth_);
+      break;
+    }
+    // .Protocol.ScResponseAuth scResponseAuth = 5;
+    case kScResponseAuth: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *body_.scresponseauth_);
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -440,6 +606,14 @@ void Protocol::MergeFrom(const Protocol& from) {
     }
     case kScReplyInfo: {
       _internal_mutable_screplyinfo()->::Protocol::ScReplyInfo::MergeFrom(from._internal_screplyinfo());
+      break;
+    }
+    case kCsRequestAuth: {
+      _internal_mutable_csrequestauth()->::Protocol::CsRequestAuth::MergeFrom(from._internal_csrequestauth());
+      break;
+    }
+    case kScResponseAuth: {
+      _internal_mutable_scresponseauth()->::Protocol::ScResponseAuth::MergeFrom(from._internal_scresponseauth());
       break;
     }
     case BODY_NOT_SET: {
@@ -1010,6 +1184,634 @@ void ScReplyInfo::InternalSwap(ScReplyInfo* other) {
       file_level_metadata_Protocol_2eproto[2]);
 }
 
+// ===================================================================
+
+class CsRequestAuth::_Internal {
+ public:
+};
+
+CsRequestAuth::CsRequestAuth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:Protocol.CsRequestAuth)
+}
+CsRequestAuth::CsRequestAuth(const CsRequestAuth& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  sourceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_sourceid().empty()) {
+    sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sourceid(), 
+      GetArenaForAllocation());
+  }
+  targetid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_targetid().empty()) {
+    targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_targetid(), 
+      GetArenaForAllocation());
+  }
+  password_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    password_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_password().empty()) {
+    password_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_password(), 
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:Protocol.CsRequestAuth)
+}
+
+inline void CsRequestAuth::SharedCtor() {
+sourceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+targetid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+password_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  password_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CsRequestAuth::~CsRequestAuth() {
+  // @@protoc_insertion_point(destructor:Protocol.CsRequestAuth)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CsRequestAuth::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  sourceid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  targetid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  password_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CsRequestAuth::ArenaDtor(void* object) {
+  CsRequestAuth* _this = reinterpret_cast< CsRequestAuth* >(object);
+  (void)_this;
+}
+void CsRequestAuth::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CsRequestAuth::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CsRequestAuth::Clear() {
+// @@protoc_insertion_point(message_clear_start:Protocol.CsRequestAuth)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  sourceid_.ClearToEmpty();
+  targetid_.ClearToEmpty();
+  password_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CsRequestAuth::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string sourceId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_sourceid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.CsRequestAuth.sourceId"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string targetId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_targetid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.CsRequestAuth.targetId"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string password = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_password();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.CsRequestAuth.password"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CsRequestAuth::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Protocol.CsRequestAuth)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string sourceId = 1;
+  if (!this->_internal_sourceid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_sourceid().data(), static_cast<int>(this->_internal_sourceid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.CsRequestAuth.sourceId");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_sourceid(), target);
+  }
+
+  // string targetId = 2;
+  if (!this->_internal_targetid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_targetid().data(), static_cast<int>(this->_internal_targetid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.CsRequestAuth.targetId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_targetid(), target);
+  }
+
+  // string password = 3;
+  if (!this->_internal_password().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_password().data(), static_cast<int>(this->_internal_password().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.CsRequestAuth.password");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_password(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Protocol.CsRequestAuth)
+  return target;
+}
+
+size_t CsRequestAuth::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Protocol.CsRequestAuth)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string sourceId = 1;
+  if (!this->_internal_sourceid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_sourceid());
+  }
+
+  // string targetId = 2;
+  if (!this->_internal_targetid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_targetid());
+  }
+
+  // string password = 3;
+  if (!this->_internal_password().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_password());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CsRequestAuth::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CsRequestAuth::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CsRequestAuth::GetClassData() const { return &_class_data_; }
+
+void CsRequestAuth::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CsRequestAuth *>(to)->MergeFrom(
+      static_cast<const CsRequestAuth &>(from));
+}
+
+
+void CsRequestAuth::MergeFrom(const CsRequestAuth& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Protocol.CsRequestAuth)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_sourceid().empty()) {
+    _internal_set_sourceid(from._internal_sourceid());
+  }
+  if (!from._internal_targetid().empty()) {
+    _internal_set_targetid(from._internal_targetid());
+  }
+  if (!from._internal_password().empty()) {
+    _internal_set_password(from._internal_password());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CsRequestAuth::CopyFrom(const CsRequestAuth& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Protocol.CsRequestAuth)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CsRequestAuth::IsInitialized() const {
+  return true;
+}
+
+void CsRequestAuth::InternalSwap(CsRequestAuth* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &sourceid_, lhs_arena,
+      &other->sourceid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &targetid_, lhs_arena,
+      &other->targetid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &password_, lhs_arena,
+      &other->password_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CsRequestAuth::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_Protocol_2eproto_getter, &descriptor_table_Protocol_2eproto_once,
+      file_level_metadata_Protocol_2eproto[3]);
+}
+
+// ===================================================================
+
+class ScResponseAuth::_Internal {
+ public:
+};
+
+ScResponseAuth::ScResponseAuth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:Protocol.ScResponseAuth)
+}
+ScResponseAuth::ScResponseAuth(const ScResponseAuth& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  sourceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_sourceid().empty()) {
+    sourceid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sourceid(), 
+      GetArenaForAllocation());
+  }
+  targetid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_targetid().empty()) {
+    targetid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_targetid(), 
+      GetArenaForAllocation());
+  }
+  msg_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_msg(), 
+      GetArenaForAllocation());
+  }
+  success_ = from.success_;
+  // @@protoc_insertion_point(copy_constructor:Protocol.ScResponseAuth)
+}
+
+inline void ScResponseAuth::SharedCtor() {
+sourceid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  sourceid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+targetid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  targetid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+msg_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+success_ = false;
+}
+
+ScResponseAuth::~ScResponseAuth() {
+  // @@protoc_insertion_point(destructor:Protocol.ScResponseAuth)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void ScResponseAuth::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  sourceid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  targetid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  msg_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void ScResponseAuth::ArenaDtor(void* object) {
+  ScResponseAuth* _this = reinterpret_cast< ScResponseAuth* >(object);
+  (void)_this;
+}
+void ScResponseAuth::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ScResponseAuth::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ScResponseAuth::Clear() {
+// @@protoc_insertion_point(message_clear_start:Protocol.ScResponseAuth)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  sourceid_.ClearToEmpty();
+  targetid_.ClearToEmpty();
+  msg_.ClearToEmpty();
+  success_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ScResponseAuth::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string sourceId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_sourceid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.ScResponseAuth.sourceId"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string targetId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_targetid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.ScResponseAuth.targetId"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool success = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          success_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string msg = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Protocol.ScResponseAuth.msg"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ScResponseAuth::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Protocol.ScResponseAuth)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string sourceId = 1;
+  if (!this->_internal_sourceid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_sourceid().data(), static_cast<int>(this->_internal_sourceid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.ScResponseAuth.sourceId");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_sourceid(), target);
+  }
+
+  // string targetId = 2;
+  if (!this->_internal_targetid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_targetid().data(), static_cast<int>(this->_internal_targetid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.ScResponseAuth.targetId");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_targetid(), target);
+  }
+
+  // bool success = 3;
+  if (this->_internal_success() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_success(), target);
+  }
+
+  // string msg = 4;
+  if (!this->_internal_msg().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_msg().data(), static_cast<int>(this->_internal_msg().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Protocol.ScResponseAuth.msg");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_msg(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Protocol.ScResponseAuth)
+  return target;
+}
+
+size_t ScResponseAuth::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Protocol.ScResponseAuth)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string sourceId = 1;
+  if (!this->_internal_sourceid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_sourceid());
+  }
+
+  // string targetId = 2;
+  if (!this->_internal_targetid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_targetid());
+  }
+
+  // string msg = 4;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_msg());
+  }
+
+  // bool success = 3;
+  if (this->_internal_success() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ScResponseAuth::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ScResponseAuth::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ScResponseAuth::GetClassData() const { return &_class_data_; }
+
+void ScResponseAuth::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ScResponseAuth *>(to)->MergeFrom(
+      static_cast<const ScResponseAuth &>(from));
+}
+
+
+void ScResponseAuth::MergeFrom(const ScResponseAuth& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Protocol.ScResponseAuth)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_sourceid().empty()) {
+    _internal_set_sourceid(from._internal_sourceid());
+  }
+  if (!from._internal_targetid().empty()) {
+    _internal_set_targetid(from._internal_targetid());
+  }
+  if (!from._internal_msg().empty()) {
+    _internal_set_msg(from._internal_msg());
+  }
+  if (from._internal_success() != 0) {
+    _internal_set_success(from._internal_success());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ScResponseAuth::CopyFrom(const ScResponseAuth& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Protocol.ScResponseAuth)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ScResponseAuth::IsInitialized() const {
+  return true;
+}
+
+void ScResponseAuth::InternalSwap(ScResponseAuth* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &sourceid_, lhs_arena,
+      &other->sourceid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &targetid_, lhs_arena,
+      &other->targetid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &msg_, lhs_arena,
+      &other->msg_, rhs_arena
+  );
+  swap(success_, other->success_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ScResponseAuth::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_Protocol_2eproto_getter, &descriptor_table_Protocol_2eproto_once,
+      file_level_metadata_Protocol_2eproto[4]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Protocol
 PROTOBUF_NAMESPACE_OPEN
@@ -1021,6 +1823,12 @@ template<> PROTOBUF_NOINLINE ::Protocol::CsHostInfo* Arena::CreateMaybeMessage< 
 }
 template<> PROTOBUF_NOINLINE ::Protocol::ScReplyInfo* Arena::CreateMaybeMessage< ::Protocol::ScReplyInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Protocol::ScReplyInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Protocol::CsRequestAuth* Arena::CreateMaybeMessage< ::Protocol::CsRequestAuth >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Protocol::CsRequestAuth >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Protocol::ScResponseAuth* Arena::CreateMaybeMessage< ::Protocol::ScResponseAuth >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Protocol::ScResponseAuth >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
